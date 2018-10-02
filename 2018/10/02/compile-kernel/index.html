@@ -117,6 +117,7 @@
 <meta property="og:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/70.jpg">
+<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/141.jpg">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/12-view-syscall-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/13-add-syscall-id.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/15-set-syscall-2.png">
@@ -133,7 +134,7 @@
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/44-test-1.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/45-test-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/8.jpg">
-<meta property="og:updated_time" content="2018-10-02T07:31:19.904Z">
+<meta property="og:updated_time" content="2018-10-02T07:53:39.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-1:Linux 内核编译及添加系统调用">
 <meta name="twitter:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
@@ -341,7 +342,7 @@
                 
               
 
-              <time title="创建时间:2018-10-02 12:58:37 / 修改时间:15:31:19" itemprop="dateCreated datePublished" datetime="2018-10-02T12:58:37+08:00">2018-10-02</time>
+              <time title="创建时间:2018-10-02 12:58:37 / 修改时间:15:53:39" itemprop="dateCreated datePublished" datetime="2018-10-02T12:58:37+08:00">2018-10-02</time>
             
 
             
@@ -434,9 +435,11 @@
 <p><strong>[*] Caution! 运行当前目录下的文件的命令是 <code>./filename</code></strong></p>
 <h3 id="内核解压缩-amp-移动"><a href="#内核解压缩-amp-移动" class="headerlink" title="内核解压缩&amp;移动"></a>内核解压缩&amp;移动</h3><p>与此同时应该已经下载完成了</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /home/user/下载 # 用cd命令进入 下载</span><br><span class="line"><span class="meta">$</span> ls # 查看下载完的内核</span><br><span class="line">linux-4.18.8.tar.xz</span><br><span class="line"><span class="meta">$</span> mv linux-4.18.8.tar.xz linux.tar.xz # 名字太长，我选择改名,你随意</span><br><span class="line"><span class="meta">$</span> xz -d linux.tar.xz # 解压第一步</span><br><span class="line"><span class="meta">$</span> tar -xvf linux.tar # 解压第二步</span><br><span class="line"><span class="meta">$</span> ls # 查看解压结果</span><br><span class="line">linux-4.18.8 linux.tar</span><br><span class="line"><span class="meta">$</span> mv linux-4.18.8 linux # 日常改名</span><br><span class="line"><span class="meta">$</span> mv linux /usr/src # 将内核移至Ubuntu专门存放内核的目录下</span><br><span class="line">mv 无法创建目录'/usr/src/linux': 权限不够 # 发现权限不够</span><br><span class="line"><span class="meta">$</span> su root # 开启root权限</span><br><span class="line"><span class="meta">$</span> mv linux /usr/src # 继续移动</span><br><span class="line"><span class="meta">$</span> ls /usr/src # 查看结果 发现新内核与现存的其他版本内核</span><br><span class="line">linux linux-headers-4.13.0-36</span><br><span class="line">linux-headers-4.13.0-45-generic linux-headers-4.13.0-45</span><br></pre></td></tr></table></figure>
+<p><img src="141.jpg" alt=""></p>
 <h2 id="修改系统调用表"><a href="#修改系统调用表" class="headerlink" title="修改系统调用表"></a>修改系统调用表</h2><p><strong>[*] Caution! 如不加强调，接下来所有操作均在 <code>/usr/src/linux</code> 下进行</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd /usr/src/linux # 进入内核文件根目录</span><br><span class="line"><span class="meta">$</span> vim + ./arch/x86/entry/syscalls/syscall_64.tbl # 打开系统调用表所在的文件</span><br></pre></td></tr></table></figure></p>
 <p>可以看到系统调用表的格式<br><img src="12-view-syscall-2.png" alt=""><br><strong>[*] Caution! 黄线框内为此版本内核的不同之处</strong></p>
-<p>添加一条系统调用 <code>335     64      mysetnice       __64_sys_mysetnice</code><br><img src="13-add-syscall-id.png" alt=""><br><strong>[*] Caution! 注意序列号数字的变化，实际操作时以你的版本为主随机应变，关注下缩进</strong></p>
+<p>添加一条系统调用<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">335</span>     <span class="number">64</span>      mysetnice       __64_sys_mysetnice</span><br></pre></td></tr></table></figure></p>
+<p><img src="13-add-syscall-id.png" alt=""><br><strong>[*] Caution! 注意序列号数字的变化，实际操作时以你的版本为主,随机应变，还要关注下缩进</strong></p>
 <h2 id="分配系统调用号"><a href="#分配系统调用号" class="headerlink" title="分配系统调用号"></a>分配系统调用号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim + ./include/uapi/asm-generic/unistd.h # 打开目标文件的最后一行</span><br></pre></td></tr></table></figure>
 <p><img src="15-set-syscall-2.png" alt=""><br><strong>[*] Caution! 末尾两处宏定义的变化</strong></p>
 <p>添加如下代码设置系统调用号<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __NR_mysetnice 335		<span class="comment">//分配系统调用号</span></span></span><br><span class="line">__SYSCALL(__NR_mysetnice,sys_mysetnice)</span><br></pre></td></tr></table></figure></p>
@@ -450,7 +453,7 @@
 <h2 id="编译-amp-安装-内核-amp-模块"><a href="#编译-amp-安装-内核-amp-模块" class="headerlink" title="编译&amp;安装(内核&amp;模块)"></a>编译&amp;安装(内核&amp;模块)</h2><h3 id="配置内核"><a href="#配置内核" class="headerlink" title="配置内核"></a>配置内核</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> apt-get install libncurses5-dev # 安装必备组件</span><br><span class="line"><span class="meta">$</span> make menuconfig # 试图配置内核，为何试图？因为很难一次性成功</span><br><span class="line"><span class="meta">$</span> apt-get install XXX # 仔细看报错&amp;提示，缺啥补啥，这个过程可能会多次进行</span><br><span class="line"><span class="meta">$</span> make menuconfig # 再次尝试配置,祝你成功</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p><img src="24-ready-compile-3.png" alt=""></p>
 <p>弹出配置内核界面        </p>
-<p><strong>[<em>] Caution! 按下 <code>Y</code> 修改为 `[</em>]<code>,记得</code>save` 保存</strong></p>
+<p><strong>[*] Caution! 可按下 <code>y</code>/ <code>m</code> / <code>n</code> 进行修改</strong></p>
 <ol>
 <li><p><img src="26-set-kenerl-1.png" alt=""></p>
 </li>
