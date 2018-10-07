@@ -133,7 +133,7 @@
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/34-make-module-1.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/45-test-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/8.jpg">
-<meta property="og:updated_time" content="2018-10-02T08:00:50.253Z">
+<meta property="og:updated_time" content="2018-10-07T03:57:16.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-1:Linux 内核编译及添加系统调用">
 <meta name="twitter:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
@@ -341,12 +341,24 @@
                 
               
 
-              <time title="创建时间:2018-10-02 12:58:37 / 修改时间:16:00:50" itemprop="dateCreated datePublished" datetime="2018-10-02T12:58:37+08:00">2018-10-02</time>
+              <time title="创建时间:2018-10-02 12:58:37" itemprop="dateCreated datePublished" datetime="2018-10-02T12:58:37+08:00">2018-10-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间:2018-10-07 11:57:16" itemprop="dateModified" datetime="2018-10-07T11:57:16+08:00">2018-10-07</time>
               
             
           </span>
@@ -477,6 +489,32 @@
 <p>打开两个终端<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> top # 终端1：top 命令查看进程表</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ./test # 终端2：测试系统调用</span><br></pre></td></tr></table></figure>
 <p>测试详情：<br><img src="45-test-2.png" alt=""><br>若你的测试效果大该如此这般，那么恭喜你，成功了大半！<br><img src="8.jpg" alt=""><br>至于另一半？你得深入了解一下Linux下系统调用的实质。</p>
+<h2 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h2><ul>
+<li><p><a href="https://zh.wikipedia.org/wiki/%E8%BF%9B%E7%A8%8BID#PID%E6%96%87%E4%BB%B6" target="_blank" rel="noopener">pid</a></p>
+<blockquote>
+<p>在计算机领域，进程标识符（英语：process identifier，又略称为进程ID（英语：process ID）、PID）是大多数操作系统的内核用于唯一标识进程的一个数值。这一数值可以作为许多函数调用的参数，以使调整进程优先级、杀死进程之类的进程控制行为成为可能。    </p>
+</blockquote>
+</li>
+<li><p><a href="https://www.cnblogs.com/listened/p/3950537.html" target="_blank" rel="noopener">pid_t</a></p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./usr/include/sys/types.h</span></span><br><span class="line"><span class="keyword">typedef</span>		<span class="keyword">__pid_t</span>		<span class="keyword">pid_t</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./usr/include/bits/types.h</span></span><br><span class="line">__STD_TYPE	__PID_T_TYPE	<span class="keyword">__pid_t</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./usr/include/bits/typesizes.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>		__PID_T_TYPE	__S32_TYPE</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./usr/include/bits/types.h</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span>		__S32_TYPE	int</span></span><br></pre></td></tr></table></figure>
+<p>兜兜转转之后，可知 <code>pid_t</code> 就是 <code>int</code> 类型</p>
+<ul>
+<li><a href="https://superuser.com/questions/203657/difference-between-nice-value-and-priority-in-the-top-output" target="_blank" rel="noopener">nice&amp;priority</a><blockquote>
+<p>Nice值是类UNIX操作系统中表示静态优先级的数值。每个进程都有自己的静态优先级，优先级高的进程得以优先运行。Nice值的范围是-20~+19，拥有Nice值越大的进程的实际优先级越小，默认的Nice值是0。由于Nice值是静态优先级，所以一经设定，就不会再被内核修改，直到被重新设定。Nice值只起干预CPU时间分配的作用，实际中的细节，由动态优先级决定。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>The difference is that PR is a real priority of a process at the moment inside of the kernel and NI is just a hint for the kernel what the priority the process should have.<br>区别在于Priority是内核内部进程的真正优先级，Nice只是内核提示进程应具有的优先级。</p>
+</blockquote>
+<blockquote>
+<p>一般情况下，Priority = Nice + 20，也就是Priority的值为0~39。但是上述理论仅仅适用于调度策略是<a href="ttps://www.linkedin.com/pulse/20140629145049-21586023-understanding-linux-scheduling" target="_blank" rel="noopener">SCHED_OTHER</a>的进程。</p>
+</blockquote>
 <h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p><a href="https://drive.google.com/drive/folders/1jKrYr0nRVT-tP2EnJ86ittvHGqQ9haHW?usp=sharing" target="_blank" rel="noopener">更详细的实验操作流程点这里，45张实验截图包你满意</a><br><a href="https://liolok.github.io/Linux-Kernel-Compilation/" target="_blank" rel="noopener">更透彻的实验指导点这里，笔者能力有限，直接祭出外援</a></p>
 
       
@@ -670,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux分区-amp-下载内核"><span class="nav-number">1.1.</span> <span class="nav-text">Linux分区&amp;下载内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-root"><span class="nav-number">1.2.</span> <span class="nav-text">开启 root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器-Vim"><span class="nav-number">1.3.</span> <span class="nav-text">编辑器 Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器-gcc"><span class="nav-number">1.4.</span> <span class="nav-text">编译器 gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核解压缩-amp-移动"><span class="nav-number">1.5.</span> <span class="nav-text">内核解压缩&amp;移动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改系统调用表"><span class="nav-number">2.</span> <span class="nav-text">修改系统调用表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分配系统调用号"><span class="nav-number">3.</span> <span class="nav-text">分配系统调用号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申明系统调用原型"><span class="nav-number">4.</span> <span class="nav-text">申明系统调用原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现系统调用服务例程"><span class="nav-number">5.</span> <span class="nav-text">实现系统调用服务例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-amp-安装-内核-amp-模块"><span class="nav-number">6.</span> <span class="nav-text">编译&amp;安装(内核&amp;模块)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内核"><span class="nav-number">6.1.</span> <span class="nav-text">配置内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译内核"><span class="nav-number">6.2.</span> <span class="nav-text">编译内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块"><span class="nav-number">6.3.</span> <span class="nav-text">编译模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装模块-amp-内核"><span class="nav-number">6.4.</span> <span class="nav-text">安装模块&amp;内核</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始测试"><span class="nav-number">7.</span> <span class="nav-text">开始测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remarks"><span class="nav-number">8.</span> <span class="nav-text">Remarks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux分区-amp-下载内核"><span class="nav-number">1.1.</span> <span class="nav-text">Linux分区&amp;下载内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启-root"><span class="nav-number">1.2.</span> <span class="nav-text">开启 root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器-Vim"><span class="nav-number">1.3.</span> <span class="nav-text">编辑器 Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译器-gcc"><span class="nav-number">1.4.</span> <span class="nav-text">编译器 gcc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内核解压缩-amp-移动"><span class="nav-number">1.5.</span> <span class="nav-text">内核解压缩&amp;移动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改系统调用表"><span class="nav-number">2.</span> <span class="nav-text">修改系统调用表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分配系统调用号"><span class="nav-number">3.</span> <span class="nav-text">分配系统调用号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申明系统调用原型"><span class="nav-number">4.</span> <span class="nav-text">申明系统调用原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现系统调用服务例程"><span class="nav-number">5.</span> <span class="nav-text">实现系统调用服务例程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-amp-安装-内核-amp-模块"><span class="nav-number">6.</span> <span class="nav-text">编译&amp;安装(内核&amp;模块)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置内核"><span class="nav-number">6.1.</span> <span class="nav-text">配置内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译内核"><span class="nav-number">6.2.</span> <span class="nav-text">编译内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译模块"><span class="nav-number">6.3.</span> <span class="nav-text">编译模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装模块-amp-内核"><span class="nav-number">6.4.</span> <span class="nav-text">安装模块&amp;内核</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始测试"><span class="nav-number">7.</span> <span class="nav-text">开始测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详解"><span class="nav-number">8.</span> <span class="nav-text">详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remarks"><span class="nav-number">9.</span> <span class="nav-text">Remarks</span></a></li></ol></div>
             
 
           </div>
