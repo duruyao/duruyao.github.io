@@ -134,7 +134,7 @@
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/45-test-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/8.jpg">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/75.jpg">
-<meta property="og:updated_time" content="2018-10-15T11:28:21.222Z">
+<meta property="og:updated_time" content="2018-10-15T11:32:56.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-1:Linux 内核编译及添加系统调用">
 <meta name="twitter:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
@@ -359,7 +359,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间:2018-10-15 19:28:21" itemprop="dateModified" datetime="2018-10-15T19:28:21+08:00">2018-10-15</time>
+                <time title="修改时间:2018-10-15 19:32:56" itemprop="dateModified" datetime="2018-10-15T19:32:56+08:00">2018-10-15</time>
               
             
           </span>
@@ -501,10 +501,10 @@
 <p>进程是具有一定独立功能的程序关于某个数据集合的一次运算过程，是系统进行资源分配和调度的独立单位。进程的两个基本元素：一个或一组可执行的程序、与程序有关的数据集。</p>
 </blockquote>
 <h3 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a><a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%A1%A8" target="_blank" rel="noopener">PCB</a></h3><blockquote>
-<p>进程控制块，是进程映像的重要组成部分，其中记录了用于描述进程情况即控制进程运行的全部信息。是具有 <code>task_struct</code> 的结构体。</p>
+<p>进程控制块，是进程映像的重要组成部分，其中记录了用于描述进程情况即控制进程运行的全部信息。是具有 <code>task_struct</code> 结构的结构体。</p>
 </blockquote>
 <h3 id="task-struct"><a href="#task-struct" class="headerlink" title="task_struct"></a><a href="https://elixir.bootlin.com/linux/v4.18.12/source/include/linux/sched.h#L593" target="_blank" rel="noopener">task_struct</a></h3><blockquote>
-<p>task_struct是Linux内核的一种数据结构，它会被装载到RAM中并且包含着进程的信息。每个进程都把它的信息放在 task_struct 这个数据结构体。</p>
+<p>task_struct是Linux内核的一种数据结构，它会被装载到RAM中并且包含着进程的信息。每个进程都把它的信息放在 task_struct 这个数据结构体中。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ./include/linux/sched.h</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">task_struct</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    ......</span><br><span class="line">	<span class="keyword">volatile</span> <span class="keyword">long</span>			state;  <span class="comment">// 602 lines</span></span><br><span class="line">    ......</span><br><span class="line">	<span class="keyword">int</span>				prio;   <span class="comment">// 639 lines</span></span><br><span class="line">	<span class="keyword">int</span>				static_prio;</span><br><span class="line">	<span class="keyword">int</span>				normal_prio;</span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">int</span>			rt_priority;</span><br><span class="line">    ......</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span>		*<span class="title">mm</span>;</span>    <span class="comment">// 688 lines</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span>		*<span class="title">active_mm</span>;</span></span><br><span class="line">    ......</span><br><span class="line">	<span class="keyword">pid_t</span>				pid;    <span class="comment">// 742 lines</span></span><br><span class="line">    ......</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">sched_entity</span>		*<span class="title">parent</span>;</span>    <span class="comment">// 759 lines</span></span><br><span class="line">    ......</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>		<span class="title">children</span>;</span>   <span class="comment">// 764 lines</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">list_head</span>		<span class="title">sibling</span>;</span></span><br><span class="line">    ......</span><br><span class="line">	<span class="keyword">char</span>				comm[TASK_COMM_LEN];    <span class="comment">// 842 lines</span></span><br><span class="line">    ......</span><br></pre></td></tr></table></figure>
 <h3 id="pid"><a href="#pid" class="headerlink" title="pid"></a><a href="https://elixir.bootlin.com/linux/latest/source/include/linux/pid.h#L58" target="_blank" rel="noopener">pid</a></h3><blockquote>
