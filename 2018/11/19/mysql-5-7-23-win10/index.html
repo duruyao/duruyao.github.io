@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Preparation   Object Value     MySql Version mysql-5.7.23   Operation System Windows 10 x64    InstallDownload   Object Value     Offical Product Removed   Unoffical Link mysql-5.7.23-winx64.zip   Ac">
+<meta name="keywords" content="MySql &amp; Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql Base Operation Organizing For Myself">
+<meta property="og:url" content="https://graycat0918.github.io/2018/11/19/mysql-5-7-23-win10/index.html">
+<meta property="og:site_name" content="Graycat">
+<meta property="og:description" content="Preparation   Object Value     MySql Version mysql-5.7.23   Operation System Windows 10 x64    InstallDownload   Object Value     Offical Product Removed   Unoffical Link mysql-5.7.23-winx64.zip   Ac">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://graycat0918.github.io/2018/11/19/mysql-5-7-23-win10/mysql.png">
+<meta property="og:updated_time" content="2018-11-19T13:40:49.569Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySql Base Operation Organizing For Myself">
+<meta name="twitter:description" content="Preparation   Object Value     MySql Version mysql-5.7.23   Operation System Windows 10 x64    InstallDownload   Object Value     Offical Product Removed   Unoffical Link mysql-5.7.23-winx64.zip   Ac">
+<meta name="twitter:image" content="https://graycat0918.github.io/2018/11/19/mysql-5-7-23-win10/mysql.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://graycat0918.github.io/2018/11/19/mysql-5-7-23-win10/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>MySql Base Operation Organizing For Myself | Graycat</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Graycat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2018/11/19/mysql-5-7-23-win10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graycat">
+      <meta itemprop="description" content="上下四方曰宇，古往今来曰宙">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Graycat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySql Base Operation Organizing For Myself
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间:2018-11-19 19:30:16 / 修改时间:21:40:49" itemprop="dateCreated datePublished" datetime="2018-11-19T19:30:16+08:00">2018-11-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="mysql.png" alt=""></p>
+<h2 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h2><table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySql Version</td>
+<td>mysql-5.7.23</td>
+</tr>
+<tr>
+<td>Operation System</td>
+<td>Windows 10 x64</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><h3 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h3><table>
+<thead>
+<tr>
+<th>Object</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Offical Product</td>
+<td>Removed</td>
+</tr>
+<tr>
+<td>Unoffical Link</td>
+<td><a href="https://share.weiyun.com/5YUsZ59" target="_blank" rel="noopener">mysql-5.7.23-winx64.zip</a></td>
+</tr>
+<tr>
+<td>Access Code</td>
+<td>NULL</td>
+</tr>
+</tbody>
+</table>
+<p>Download and unzip at suitable location, such as <code>D:\mysql-5.7.23-winx64</code></p>
+<p><strong><font color="red">[*] Caution!</font> Using <code>D:\mysql-5.7.23-winx64</code> as a position is a precondition for all the next examples. Change one and must change all.</strong></p>
+<h3 id="Add-Path"><a href="#Add-Path" class="headerlink" title="Add Path"></a>Add Path</h3><p><code>Computer</code> -&gt; <code>Attributes</code> -&gt; <code>Advanced System Settings</code> -&gt; <code>Environmental Variable</code> -&gt; <code>System Variable</code> -&gt; <code>Path</code> -&gt; <code>Edit</code> -&gt; <code>New</code> : <strong><font color="green"> D:\mysql-5.7.23-winx64\bin</font></strong> -&gt; <code>OK</code></p>
+<h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><h3 id="Edit-Configuration-File"><a href="#Edit-Configuration-File" class="headerlink" title="Edit Configuration File"></a>Edit Configuration File</h3><p>New <code>my.ini</code> at <code>D:\mysql-5.7.23-winx64\</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[mysql]</span><br><span class="line"><span class="meta">#</span> 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line"> </span><br><span class="line">[mysqld]</span><br><span class="line"><span class="meta">#</span> 设置3306端口</span><br><span class="line">port = 3306</span><br><span class="line"><span class="meta">#</span> 设置mysql的安装目录</span><br><span class="line">basedir=D:\\mysql-5.7.23-winx64</span><br><span class="line"><span class="meta">#</span> 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错</span><br><span class="line">datadir=D:\\mysql-5.7.23-winx64\\data</span><br><span class="line"><span class="meta">#</span> 允许最大连接数</span><br><span class="line">max_connections=20</span><br><span class="line"><span class="meta">#</span> 服务端使用的字符集默认为8比特编码的latin1字符集</span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="meta">#</span> 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br></pre></td></tr></table></figure>
+<h3 id="Initialize-Database"><a href="#Initialize-Database" class="headerlink" title="Initialize Database"></a>Initialize Database</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> cd D:\mysql-5.7.23-winx64\bin # Under administrator privileges</span><br><span class="line"><span class="meta">&gt;</span> mysqld --install # if exist, `mysqld --remove` and `mysqld --install`</span><br><span class="line">Service successfully installed.</span><br><span class="line"><span class="meta">&gt;</span> mysqld --initialize # `D:\mysql-5.7.23-winx64\data\` will be producted</span><br><span class="line"><span class="meta">&gt;</span> net start mysql</span><br></pre></td></tr></table></figure>
+<h3 id="Change-Initial-Code"><a href="#Change-Initial-Code" class="headerlink" title="Change Initial Code"></a>Change Initial Code</h3><p>First cmd<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> net stop mysql</span><br><span class="line"><span class="meta">&gt;</span> mysqld --skip-grant-tables # Keep this cmd running and open second cmd</span><br></pre></td></tr></table></figure></p>
+<p>Second cmd<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> mysql -u root -p # Enter MySql Server without code</span><br><span class="line">Enter password: # Press `ENTER`</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 2</span><br><span class="line">Server version: 5.7.23</span><br><span class="line">...     ...</span><br><span class="line">Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span>update mysql.user set authentication_string=password("PASSWORD") where user="root"; # Type your code instead of `PASSWORD` </span><br><span class="line">Query OK, 1 row affected, 1 warning (0.02 sec)</span><br><span class="line">Rows matched: 1 Changed: 1 Warnings: 1</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span>flush privileges; # Refresh</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="meta">mysql&gt;</span>quit; # Exit Database</span><br><span class="line">Bye</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span>taskkill /im cmd.exe -F # Close `First cmd` and `Second cmd`</span><br></pre></td></tr></table></figure></p>
+<h3 id="Log-In"><a href="#Log-In" class="headerlink" title="Log In"></a>Log In</h3><p>Log in database with code changed<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> mysql -u root -p </span><br><span class="line">Enter password: ********</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">...     ...</span><br><span class="line"><span class="meta">mysql&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Change-Code-Again"><a href="#Change-Code-Again" class="headerlink" title="Change Code Again"></a>Change Code Again</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mysql&gt;</span>SET PASSWORD = PASSWORD('NEWPASSWORD'); # Type your code instead of `NEWPASSWORD`</span><br><span class="line">...     ...</span><br><span class="line"><span class="meta">mysql&gt;</span>ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;</span><br><span class="line">...     ...</span><br><span class="line"><span class="meta">mysql&gt;</span>flush privileges;</span><br><span class="line">...     ...</span><br><span class="line"><span class="meta">mysql&gt;</span>quit</span><br><span class="line">...     ...</span><br></pre></td></tr></table></figure>
+<h2 id="Base-Usage"><a href="#Base-Usage" class="headerlink" title="Base Usage"></a>Base Usage</h2><hr>
+<p><strong><center>Unfinished</center></strong></p>
+<hr>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MySql-Windows/" rel="tag"># MySql & Windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/18/android-history/" rel="next" title="Unoffical History Of Android">
+                <i class="fa fa-chevron-left"></i> Unoffical History Of Android
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
+                alt="Graycat" />
+            
+              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-description motion-element" itemprop="description">上下四方曰宇，古往今来曰宙</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preparation"><span class="nav-number">1.</span> <span class="nav-text">Preparation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">2.</span> <span class="nav-text">Install</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Download"><span class="nav-number">2.1.</span> <span class="nav-text">Download</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Add-Path"><span class="nav-number">2.2.</span> <span class="nav-text">Add Path</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Configure"><span class="nav-number">3.</span> <span class="nav-text">Configure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Edit-Configuration-File"><span class="nav-number">3.1.</span> <span class="nav-text">Edit Configuration File</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Initialize-Database"><span class="nav-number">3.2.</span> <span class="nav-text">Initialize Database</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Initial-Code"><span class="nav-number">3.3.</span> <span class="nav-text">Change Initial Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Log-In"><span class="nav-number">3.4.</span> <span class="nav-text">Log In</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Change-Code-Again"><span class="nav-number">3.5.</span> <span class="nav-text">Change Code Again</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Base-Usage"><span class="nav-number">4.</span> <span class="nav-text">Base Usage</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graycat</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
