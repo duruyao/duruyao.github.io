@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -115,7 +115,7 @@
 <meta property="og:url" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/index.html">
 <meta property="og:site_name" content="Graycat">
 <meta property="og:description" content="Linux 提供的模块机制能动态扩充 linux 功能而无需重新编译内核，已经广泛应用在 linux 内核的许多功能的实现中。   不知你看到这段话时是否和我一样脱口而出 MD! ZZ! ，毕竟上一个通过重新编译内核扩充 Linux 功能的实验耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！ 实验要求(1) 设计">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/50.jpg">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/Makefile-error-1.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/84.jpg">
@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/Makefile-error-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/process_list_img.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/126.jpg">
-<meta property="og:updated_time" content="2019-01-11T05:13:30.000Z">
+<meta property="og:updated_time" content="2019-01-11T13:13:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-2:Linux 内核模块编程">
 <meta name="twitter:description" content="Linux 提供的模块机制能动态扩充 linux 功能而无需重新编译内核，已经广泛应用在 linux 内核的许多功能的实现中。   不知你看到这段话时是否和我一样脱口而出 MD! ZZ! ，毕竟上一个通过重新编译内核扩充 Linux 功能的实验耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！ 实验要求(1) 设计">
@@ -184,7 +184,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
 
   
   
@@ -210,7 +210,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button aria-label="切换导航栏">
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archiv</a>
   </li>
 
       
@@ -324,14 +324,14 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="创建时间:2018-10-10 23:48:41" itemprop="dateCreated datePublished" datetime="2018-10-10T23:48:41+08:00">2018-10-10</time>
+              <time title="Post created: 2018-10-10 23:48:41" itemprop="dateCreated datePublished" datetime="2018-10-10T23:48:41+08:00">2018-10-10</time>
             
 
             
@@ -346,9 +346,9 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">更新于</span>
+                  <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="修改时间:2019-01-11 13:13:30" itemprop="dateModified" datetime="2019-01-11T13:13:30+08:00">2019-01-11</time>
+                <time title="Updated at: 2019-01-11 21:13:30" itemprop="dateModified" datetime="2019-01-11T21:13:30+08:00">2019-01-11</time>
               
             
           </span>
@@ -548,10 +548,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Übersicht
           </li>
         </ul>
       
@@ -576,7 +576,7 @@
                   <a href="/archives/">
                 
                     <span class="site-state-item-count">11</span>
-                    <span class="site-state-item-name">日志</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -607,7 +607,7 @@
                       
                     
                     <span class="site-state-item-count">8</span>
-                    <span class="site-state-item-name">标签</span>
+                    <span class="site-state-item-name">Tags</span>
                   
                 </div>
               
@@ -699,7 +699,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
@@ -707,7 +707,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
 
 
 
