@@ -118,7 +118,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://graycat0918.github.io/2018/11/03/linux-base/linux.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/11/03/linux-base/result.png">
-<meta property="og:updated_time" content="2019-03-27T09:30:24.182Z">
+<meta property="og:updated_time" content="2019-03-27T09:32:17.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Basic Operation Writing For Ubuntu And Organizing For Myself">
 <meta name="twitter:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
@@ -343,7 +343,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-27 17:30:24" itemprop="dateModified" datetime="2019-03-27T17:30:24+08:00">2019-03-27</time>
+                <time title="Modified: 2019-03-27 17:32:17" itemprop="dateModified" datetime="2019-03-27T17:32:17+08:00">2019-03-27</time>
               
             
           </span>
@@ -385,7 +385,7 @@
 <h3 id="Shut-Down-amp-Restart"><a href="#Shut-Down-amp-Restart" class="headerlink" title="Shut Down &amp; Restart"></a>Shut Down &amp; Restart</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> halt                                      # shut down immediately </span><br><span class="line"><span class="meta">$</span> poweroff                                  # shut down immediately</span><br><span class="line"><span class="meta">$</span> shutdown -h now                           # shut down immediately</span><br><span class="line"><span class="meta">$</span> shutdown -h [Num]                         # shut down after Num minutes</span><br><span class="line">...     ...     ...</span><br><span class="line"><span class="meta">$</span> reboot                                    # restart immediately</span><br><span class="line"><span class="meta">$</span> shutdown -r now                           # restart immediately</span><br><span class="line"><span class="meta">$</span> shutdown -r [Hours:Minutes]               # restart in Hours:Minutes</span><br><span class="line"><span class="meta">$</span> shutdown -c                               # cancel shutdown command</span><br></pre></td></tr></table></figure>
 <h3 id="Change-Hostname"><a href="#Change-Hostname" class="headerlink" title="Change Hostname"></a>Change Hostname</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su root</span><br><span class="line"><span class="meta">#</span> vim /etc/hostname</span><br><span class="line"><span class="meta">$</span> reboot</span><br></pre></td></tr></table></figure>
 <h3 id="File-Management"><a href="#File-Management" class="headerlink" title="File Management"></a>File Management</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir [Path]                              # new path</span><br><span class="line"><span class="meta">$</span> rmdir [Folder]                            # remove empty folder</span><br><span class="line"><span class="meta">$</span> rmdir -rf [Folder]                        # remove non-empty folder</span><br><span class="line"><span class="meta">$</span> cp [File] [BackupFile]                    # back up file as copy</span><br><span class="line"><span class="meta">$</span> rm [File_1] [File_2] ... [File_n]         # remove file</span><br><span class="line"><span class="meta">$</span> mv [File] [Path]                          # move file to path</span><br><span class="line"><span class="meta">$</span> mv [FileName] [NewName]                   # change filename</span><br></pre></td></tr></table></figure>
-<h3 id="Task-Management"><a href="#Task-Management" class="headerlink" title="Task Management"></a>Task Management</h3><p><strong>Manage task by using CLI.</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ps -A                                     # list all process</span><br><span class="line">...         ...</span><br><span class="line"><span class="meta">$</span> kill -9 [PID]                             # kill process forcibly by PID</span><br><span class="line"><span class="meta">$</span> killall -9 [ProcessName]                  # kill this process forcibly by name</span><br><span class="line">...         ...</span><br></pre></td></tr></table></figure></p>
+<h3 id="Task-Management"><a href="#Task-Management" class="headerlink" title="Task Management"></a>Task Management</h3><p><strong>Manage task by using CLI.</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ps -A                                     # list all process</span><br><span class="line">...         ...</span><br><span class="line"><span class="meta">$</span> kill -9 [PID]                             # kill process forcibly by PID</span><br><span class="line"><span class="meta">$</span> killall -9 [ProcessName]                  # kill process forcibly by name</span><br><span class="line">...         ...</span><br></pre></td></tr></table></figure></p>
 <p><strong>Manage task by using GUI, if Gnome is exist.</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gnome-system-monitor                      # call Task Manager</span><br></pre></td></tr></table></figure></p>
 <h3 id="Gnome-Management"><a href="#Gnome-Management" class="headerlink" title="Gnome Management"></a>Gnome Management</h3><p><strong>Press <code>Alt</code> + <code>F2</code>, then typing <code>r</code> could restart Gnome.</strong></p>
 <h2 id="Package-amp-Zip-amp-Unzip"><a href="#Package-amp-Zip-amp-Unzip" class="headerlink" title="Package &amp; Zip &amp; Unzip"></a>Package &amp; Zip &amp; Unzip</h2><h3 id="tar"><a href="#tar" class="headerlink" title=".tar"></a>.tar</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tar xvf [FileName.tar]                    # untar</span><br><span class="line"><span class="meta">$</span> tar cvf [FileName.tar] [DirName]          # package</span><br></pre></td></tr></table></figure>
@@ -597,7 +597,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -628,7 +628,23 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">tags</span>
                   
                 </div>
