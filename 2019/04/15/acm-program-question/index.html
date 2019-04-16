@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Graycat">
 <meta property="og:description" content="One apple a day keeps doctor away, and one program a day keeps a bug away.&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-04-15T15:33:27.689Z">
+<meta property="og:updated_time" content="2019-04-16T01:37:28.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Do one programming question per day">
 <meta name="twitter:description" content="One apple a day keeps doctor away, and one program a day keeps a bug away.&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp">
@@ -323,12 +323,24 @@
                 
               
 
-              <time title="Created: 2019-04-15 09:26:41 / Modified: 23:33:27" itemprop="dateCreated datePublished" datetime="2019-04-15T09:26:41+08:00">2019-04-15</time>
+              <time title="Created: 2019-04-15 09:26:41" itemprop="dateCreated datePublished" datetime="2019-04-15T09:26:41+08:00">2019-04-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-16 09:37:28" itemprop="dateModified" datetime="2019-04-16T09:37:28+08:00">2019-04-16</time>
               
             
           </span>
@@ -368,6 +380,7 @@
 <li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
 <li>Time Limit: C/C++ 5s, Other 10s</li>
 <li>Space Limit: C/C++ 262144k, Other 524288k</li>
+<li>64bit IO Format: %lld</li>
 </ul>
 <h3 id="Description-Of-Topic"><a href="#Description-Of-Topic" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
 <p>公司的程序员不够用了，决定把产品经理都转之变为程序员以解决开发时长问题。在给定的矩形网格中，每个单元格可以有一下三个值之一：</p>
@@ -406,8 +419,24 @@
 <li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
 <li>Time Limit: C/C++ 1s, Other 2s</li>
 <li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
 </ul>
-<h3 id="Description-Of-Topic-1"><a href="#Description-Of-Topic-1" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><h3 id="Description-Of-Input-1"><a href="#Description-Of-Input-1" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><h3 id="Description-Of-Output-1"><a href="#Description-Of-Output-1" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><h3 id="Example-Of-I-O-1"><a href="#Example-Of-I-O-1" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<h3 id="Description-Of-Topic-1"><a href="#Description-Of-Topic-1" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>机器人正在玩一个基于DOS的游戏，游戏中有<code>N+1</code>座建筑——从<code>0</code>到<code>N</code>编号，从左到右排列。编号为<code>0</code>的建筑物高度为<code>0</code>个单位，编号为<code>i</code>的建筑物的高度为<code>H(i)</code>个单位。</p>
+</blockquote>
+<blockquote>
+<p>起初，机器人在编号为<code>0</code>的建筑处。每一步，它跳到下一个（右边）建筑。假设机器人在第<code>k</code>个建筑，且它现在的能量是<code>E</code>，下一步它将跳到第<code>k+1</code>个建筑。它将会得到或失去正比与<code>H(k+1)</code>与<code>E</code>之差的能量。如果<code>H(k+1) &gt; E</code>那么机器人就失去<code>H(k+1)-E</code>的能量值，否则它将得到<code>E-H(k+1)</code>的能量值。</p>
+</blockquote>
+<blockquote>
+<p>游戏的目标是到达第<code>N</code>个建筑，在这个过程中，能量值不能为负数个单位。现在的问题是机器人以多少能量值开始游戏，才可以保证成功完成游戏？</p>
+</blockquote>
+<h3 id="Description-Of-Input-1"><a href="#Description-Of-Input-1" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>第一行输入，表示一共有<code>N</code>组数据。<br>第二行是<code>N</code>个空格分隔的整数，<code>H1</code>，<code>H2</code>，<code>H3</code>，...，<code>Hn</code>代表建筑物的高度。</p>
+</blockquote>
+<h3 id="Description-Of-Output-1"><a href="#Description-Of-Output-1" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>输出一个单独的数表示完成游戏所需的最少单位的初始能量。</p>
+</blockquote>
+<h3 id="Example-Of-I-O-1"><a href="#Example-Of-I-O-1" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
 <p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 4 3 2 4</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
 <hr>
@@ -422,15 +451,28 @@
 <li>Time Complexity: </li>
 <li>Space Complexity: </li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/15/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">float</span> h, minE = <span class="number">0</span>, molecule = <span class="number">0</span>, denominator = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; h;</span><br><span class="line">        molecule = molecule * <span class="number">2</span> + h;</span><br><span class="line">        denominator = denominator * <span class="number">2</span>;</span><br><span class="line">        minE = max(minE, <span class="built_in">ceil</span>(molecule / denominator));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; minE;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="旅行问题"><a href="#旅行问题" class="headerlink" title="旅行问题"></a>旅行问题</h2><ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/15/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, h;</span><br><span class="line">    <span class="keyword">float</span> minE = <span class="number">0</span>, molecule = <span class="number">0</span>, denominator = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; h;</span><br><span class="line">        molecule = molecule * <span class="number">2</span> + h;</span><br><span class="line">        denominator = denominator * <span class="number">2</span>;</span><br><span class="line">        minE = max(minE, <span class="built_in">ceil</span>(molecule / denominator));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; minE;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="旅行商问题"><a href="#旅行商问题" class="headerlink" title="旅行商问题"></a>旅行商问题</h2><ul>
 <li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
 <li>Time Limit: C/C++ 1s, Other 2s</li>
 <li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
 </ul>
-<h3 id="Description-Of-Topic-2"><a href="#Description-Of-Topic-2" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><h3 id="Description-Of-Input-2"><a href="#Description-Of-Input-2" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><h3 id="Description-Of-Output-2"><a href="#Description-Of-Output-2" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><h3 id="Example-Of-I-O-2"><a href="#Example-Of-I-O-2" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<h3 id="Description-Of-Topic-2"><a href="#Description-Of-Topic-2" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>小明目前在做一份毕业旅行的规划。打算从北京出发，分别去若干个城市，然后在回到北京，每个城市之间均乘坐高铁，且么个城市只去一次。由于经费有限，希望能够通过合理的路线安排尽可能的省一些路上的花销。给定一组城市和每对城市之间的火车票的价钱，找到每个城市只访问一次并返回起点的最小车费的花销。</p>
+</blockquote>
+<h3 id="Description-Of-Input-2"><a href="#Description-Of-Input-2" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>城市个数<code>n</code>（1 &lt; <code>n</code> &lt;= 20，包括北京）<br>城市间的车票价钱<code>n</code>行<code>n</code>列的矩阵<code>m[n][n]</code></p>
+</blockquote>
+<h3 id="Description-Of-Output-2"><a href="#Description-Of-Output-2" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>最小车费花销<code>s</code></p>
+</blockquote>
+<h3 id="Example-Of-I-O-2"><a href="#Example-Of-I-O-2" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
 <p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 2 6 5</span><br><span class="line">2 0 4 4</span><br><span class="line">6 4 0 2</span><br><span class="line">5 4 2 0</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>该例子中，共<code>4</code>个城市，城市<code>1</code>和城市<code>1</code>的车费为 0，城市 <code>1</code>和城市<code>2</code>之间的车费为 2，城市<code>1</code>和城市<code>3</code>之间的车费为 6，城市<code>1</code>和城市<code>4</code>之间的车费为 5，依次类推。假设任意两个城市直接均有单程票可购买，且票价在1000元以内，无需考虑极端情况。</p>
+</blockquote>
 <hr>
 <h3 id="Solution-Of-Question-2"><a href="#Solution-Of-Question-2" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
 <li>Language: C++ 14</li>
@@ -641,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变身程序员"><span class="nav-number">1.</span> <span class="nav-text">变身程序员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic"><span class="nav-number">1.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input"><span class="nav-number">1.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output"><span class="nav-number">1.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O"><span class="nav-number">1.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question"><span class="nav-number">1.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器人跳跃"><span class="nav-number">2.</span> <span class="nav-text">机器人跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-1"><span class="nav-number">2.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-1"><span class="nav-number">2.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-1"><span class="nav-number">2.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-1"><span class="nav-number">2.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-1"><span class="nav-number">2.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旅行问题"><span class="nav-number">3.</span> <span class="nav-text">旅行问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-2"><span class="nav-number">3.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-2"><span class="nav-number">3.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-2"><span class="nav-number">3.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-2"><span class="nav-number">3.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-2"><span class="nav-number">3.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变身程序员"><span class="nav-number">1.</span> <span class="nav-text">变身程序员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic"><span class="nav-number">1.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input"><span class="nav-number">1.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output"><span class="nav-number">1.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O"><span class="nav-number">1.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question"><span class="nav-number">1.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器人跳跃"><span class="nav-number">2.</span> <span class="nav-text">机器人跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-1"><span class="nav-number">2.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-1"><span class="nav-number">2.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-1"><span class="nav-number">2.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-1"><span class="nav-number">2.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-1"><span class="nav-number">2.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旅行商问题"><span class="nav-number">3.</span> <span class="nav-text">旅行商问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-2"><span class="nav-number">3.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-2"><span class="nav-number">3.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-2"><span class="nav-number">3.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-2"><span class="nav-number">3.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-2"><span class="nav-number">3.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li></ol></div>
             
 
           </div>
