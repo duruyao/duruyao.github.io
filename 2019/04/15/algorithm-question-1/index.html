@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="One apple a day keeps doctor away, and one program a day keeps bug(hair) away.  变身程序员 Sourcce: 字节跳动19春招研发第二次在线笔试-C卷 Time Limit: C/C++ 5s, Other 10s Space Limit: C/C++ 262144k, Other 524288k 64bit IO">
+<meta name="keywords" content="ACM C C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programing Question From ByteDance">
+<meta property="og:url" content="https://graycat0918.github.io/2019/04/15/algorithm-question-1/index.html">
+<meta property="og:site_name" content="Graycat">
+<meta property="og:description" content="One apple a day keeps doctor away, and one program a day keeps bug(hair) away.  变身程序员 Sourcce: 字节跳动19春招研发第二次在线笔试-C卷 Time Limit: C/C++ 5s, Other 10s Space Limit: C/C++ 262144k, Other 524288k 64bit IO">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-18T14:13:37.543Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Programing Question From ByteDance">
+<meta name="twitter:description" content="One apple a day keeps doctor away, and one program a day keeps bug(hair) away.  变身程序员 Sourcce: 字节跳动19春招研发第二次在线笔试-C卷 Time Limit: C/C++ 5s, Other 10s Space Limit: C/C++ 262144k, Other 524288k 64bit IO">
+
+
+
+
+
+
+  <link rel="canonical" href="https://graycat0918.github.io/2019/04/15/algorithm-question-1/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Programing Question From ByteDance | Graycat</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Graycat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2019/04/15/algorithm-question-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graycat">
+      <meta itemprop="description" content="To be, or not to be.">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Graycat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Programing Question From ByteDance
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-04-15 09:26:41" itemprop="dateCreated datePublished" datetime="2019-04-15T09:26:41+08:00">2019-04-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-18 22:13:37" itemprop="dateModified" datetime="2019-04-18T22:13:37+08:00">2019-04-18</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>One apple a day keeps doctor away, and one program a day keeps bug(hair) away.</strong></p>
+</blockquote>
+<h2 id="变身程序员"><a href="#变身程序员" class="headerlink" title="变身程序员"></a>变身程序员</h2><ul>
+<li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
+<li>Time Limit: C/C++ 5s, Other 10s</li>
+<li>Space Limit: C/C++ 262144k, Other 524288k</li>
+<li>64bit IO Format: %lld</li>
+</ul>
+<h3 id="Description-Of-Topic"><a href="#Description-Of-Topic" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>公司的程序员不够用了，决定把产品经理都转之变为程序员以解决开发时长问题。在给定的矩形网格中，每个单元格可以有一下三个值之一：</p>
+</blockquote>
+<ul>
+<li>值<code>0</code>代表空单元格；</li>
+<li>值<code>1</code>代表产品经理；</li>
+<li>值<code>2</code>代表程序员；</li>
+</ul>
+<blockquote>
+<p>每分钟，任何与程序员（在4个正方向上）相邻的产品经理都会变成程序员。返回直到单元格中没有产品经理为止所经过的最小分钟数。如果不可能，返回<code>-1</code>。</p>
+</blockquote>
+<h3 id="Description-Of-Input"><a href="#Description-Of-Input" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>不固定多行（行数 &lt;= 10），每行是按照空格分割的数字（不固定，每行数字个数 &lt;= 10），其中每个数组项的取值仅为 <code>0</code>、<code>1</code>、<code>2</code>三种。空行则输入结束。</p>
+</blockquote>
+<h3 id="Description-Of-Output"><a href="#Description-Of-Output" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>如果能够将所有产品经理变成程序员，则输出最小的分钟数。如果不能，则返回<code>-1</code>。</p>
+</blockquote>
+<h3 id="Example-Of-I-O"><a href="#Example-Of-I-O" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0 2</span><br><span class="line">1 0</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>e.g.2</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2 1</span><br><span class="line">1 1 0</span><br><span class="line">0 1 1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>e.g.3</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1 0</span><br><span class="line">1 1</span><br><span class="line">0 1</span><br><span class="line">1 1</span><br><span class="line">1 0</span><br><span class="line">1 1</span><br><span class="line">0 1</span><br><span class="line">2 1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Solution-Of-Question"><a href="#Solution-Of-Question" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
+<li>Language: C++ 14</li>
+<li>Time Complexity: </li>
+<li>Space Complexity: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/14/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_LINE_NUM 10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> a[MAX_LINE_NUM + <span class="number">2</span>];</span><br><span class="line">    <span class="built_in">string</span> b[MAX_LINE_NUM + <span class="number">2</span>]; <span class="comment">// As copy of `a`.</span></span><br><span class="line">    <span class="built_in">string</span> zeroStr = <span class="string">"000000000000"</span>;</span><br><span class="line">    <span class="keyword">bool</span> one2Two, existOne, allChanged = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> times, lineNUm = <span class="number">2</span>, itemNUm = <span class="number">0</span>, oneNum = <span class="number">0</span>, minuteNum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; MAX_LINE_NUM + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="comment">// Input one line String.</span></span><br><span class="line">        getline(<span class="built_in">cin</span>, a[i]);</span><br><span class="line">        <span class="keyword">if</span> (a[i].length() == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        a[i] = <span class="string">"0"</span> + a[i];</span><br><span class="line">        a[i] = a[i] + <span class="string">"0"</span>;</span><br><span class="line">        a[i].erase(remove(a[i].begin(), a[i].end(), <span class="string">' '</span>),</span><br><span class="line">                   a[i].end());</span><br><span class="line">        b[i] = a[i];</span><br><span class="line">        itemNUm = a[i].length();</span><br><span class="line">        lineNUm++;</span><br><span class="line">        oneNum += count(a[i].begin(), a[i].end(), <span class="string">'1'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    a[<span class="number">0</span>] = a[lineNUm - <span class="number">1</span>] = b[<span class="number">0</span>] = b[lineNUm - <span class="number">1</span>] = zeroStr;</span><br><span class="line">    times = oneNum + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (times--) &#123;</span><br><span class="line">        one2Two = <span class="literal">false</span>;</span><br><span class="line">        existOne = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= lineNUm; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; itemNUm - <span class="number">1</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (a[i][j] == <span class="string">'2'</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a[i - <span class="number">1</span>][j] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                        b[i - <span class="number">1</span>][j] = <span class="string">'2'</span>;</span><br><span class="line">                        one2Two = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (a[i + <span class="number">1</span>][j] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                        b[i + <span class="number">1</span>][j] = <span class="string">'2'</span>;</span><br><span class="line">                        one2Two = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (a[i][j - <span class="number">1</span>] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                        b[i][j - <span class="number">1</span>] = <span class="string">'2'</span>;</span><br><span class="line">                        one2Two = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (a[i][j + <span class="number">1</span>] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                        b[i][j + <span class="number">1</span>] = <span class="string">'2'</span>;</span><br><span class="line">                        one2Two = <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a[i][j] == <span class="string">'1'</span>) &#123;</span><br><span class="line">                    existOne = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (one2Two) &#123;</span><br><span class="line">            minuteNum++;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; lineNUm - <span class="number">1</span>; i++) &#123;</span><br><span class="line">                a[i] = b[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (existOne) &#123;</span><br><span class="line">            allChanged = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Output result of program.</span></span><br><span class="line">    <span class="keyword">if</span> (allChanged) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; minuteNum &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="number">-1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h2><ul>
+<li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
+<li>Time Limit: C/C++ 1s, Other 2s</li>
+<li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
+</ul>
+<h3 id="Description-Of-Topic-1"><a href="#Description-Of-Topic-1" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>小明是一名算法工程师，同时也是一名铲屎官。某天，他突发奇想，想从猫咪视频里挖掘一些运动信息。为了提取运动信息，他需要从视频的每一帧提取“猫咪特征”。一个猫咪特征是一个2维的<code>vector&lt;x,y&gt;</code>，如果<code>x_1=x_2 and y_1=y_2</code>，那么二者是同一个特征。</p>
+</blockquote>
+<blockquote>
+<p>因此，如果猫咪特征连续一致，可以认为猫咪在运动。也就是说，如果特征<code>&lt;a,b&gt;</code>在持续帧里出现，那么它将构成特征运动。比如，特征<code>&lt;a,b&gt;</code>在第<code>2</code>/<code>3</code>/<code>4</code>/<code>7</code>/<code>8</code>帧出现，那么该特征将形成两个特征运动<code>2-3-4</code>和<code>7-8</code>。</p>
+</blockquote>
+<blockquote>
+<p>现在，给定每一帧的特征，特征的数量可能不一样。小明期望能找到最长的特征运动。</p>
+</blockquote>
+<h3 id="Description-Of-Input-1"><a href="#Description-Of-Input-1" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>第一行包含一个正整数<code>N</code>，代表测试用例的个数。<br>每个测试用例的第一行包含一个正整数<code>M</code>，代表视频的帧数。</p>
+</blockquote>
+<blockquote>
+<p>接下来的<code>M</code>行，每行代表一帧。其中第一个数字是该帧的特征个数，接下来的数字是在特征的取值；比如<a href="#example">e.g.1</a>的第三行里，<code>2</code>代表该帧有两个猫咪特征，<code>&lt;1,1&gt;</code>和<code>&lt;2,2&gt;</code>。</p>
+</blockquote>
+<blockquote>
+<p>所有用例的输入特征总和<code>&lt; 100000</code>，<code>N</code>满足<code>1 &lt;= N &lt;= 100000</code>，<code>M</code>满足<code>1 &lt;= M &lt;= 100000</code>，一帧的特征个数满足 <code>&lt;= 100000</code>。特征取值均为非负整数。</p>
+</blockquote>
+<h3 id="Description-Of-Output-1"><a href="#Description-Of-Output-1" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>对每一个测试用例，输出特征运动的长度作为一行，如果没有长度大于<code>2</code>的特征运动，返回<code>1</code>。</p>
+</blockquote>
+<h3 id="Example-Of-I-O-1"><a href="#Example-Of-I-O-1" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<p><strong><span id="example">e.g.1</span></strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">8</span><br><span class="line">2 1 1 2 2</span><br><span class="line">2 1 1 1 4</span><br><span class="line">2 1 1 2 2</span><br><span class="line">2 2 2 1 4</span><br><span class="line">0</span><br><span class="line">0</span><br><span class="line">1 1 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>特征<code>&lt;1,1&gt;</code>在连续帧中连续出现三次，相比其他特征连续出现次数大，所以输出<code>3</code>。</p>
+</blockquote>
+<hr>
+<h3 id="Solution-Of-Question-1"><a href="#Solution-Of-Question-1" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
+<li>Language: C++ 14</li>
+<li>Time Complexity: </li>
+<li>Space Complexity:</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/16/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">feature</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">int</span> t; <span class="comment">// 表示 该特征是 其所处的连续运动中 的第几个特征</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">featEqual</span><span class="params">(feature, feature)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mDelete</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">feature **featArray;</span><br><span class="line"><span class="keyword">int</span> *lenArray;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, m, maxT;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        maxT = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line">        featArray = <span class="keyword">new</span> feature *[m];</span><br><span class="line">        lenArray = <span class="keyword">new</span> <span class="keyword">int</span>[m];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; lenArray[i];</span><br><span class="line">            featArray[i] = <span class="keyword">new</span> feature[lenArray[i]];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; lenArray[i] * <span class="number">2</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="built_in">cin</span> &gt;&gt; featArray[i][j / <span class="number">2</span>].x;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">cin</span> &gt;&gt; featArray[i][(j - <span class="number">1</span>) / <span class="number">2</span>].y;</span><br><span class="line">                    featArray[i][(j - <span class="number">1</span>) / <span class="number">2</span>].t = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; lenArray[i - <span class="number">1</span>]; k++) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (featEqual(featArray[i - <span class="number">1</span>][k], featArray[i][(j - <span class="number">1</span>) / <span class="number">2</span>])) &#123;</span><br><span class="line">                                featArray[i][(j - <span class="number">1</span>) / <span class="number">2</span>].t += featArray[i - <span class="number">1</span>][k].t;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    maxT = max(maxT, featArray[i][(j - <span class="number">1</span>) / <span class="number">2</span>].t);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        maxT = maxT &gt; <span class="number">2</span> ? maxT : <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; maxT &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        mDelete(m);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">featEqual</span><span class="params">(feature a, feature b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a.x == b.x) &amp;&amp; (a.y == b.y);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mDelete</span><span class="params">(<span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] featArray[m];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[] featArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="机器人跳跃"><a href="#机器人跳跃" class="headerlink" title="机器人跳跃"></a>机器人跳跃</h2><ul>
+<li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
+<li>Time Limit: C/C++ 1s, Other 2s</li>
+<li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
+</ul>
+<h3 id="Description-Of-Topic-2"><a href="#Description-Of-Topic-2" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>机器人正在玩一个基于DOS的游戏，游戏中有<code>N+1</code>座建筑——从<code>0</code>到<code>N</code>编号，从左到右排列。编号为<code>0</code>的建筑物高度为<code>0</code>个单位，编号为<code>i</code>的建筑物的高度为<code>H(i)</code>个单位。</p>
+</blockquote>
+<blockquote>
+<p>起初，机器人在编号为<code>0</code>的建筑处。每一步，它跳到下一个（右边）建筑。假设机器人在第<code>k</code>个建筑，且它现在的能量是<code>E</code>，下一步它将跳到第<code>k+1</code>个建筑。它将会得到或失去正比与<code>H(k+1)</code>与<code>E</code>之差的能量。如果<code>H(k+1) &gt; E</code>那么机器人就失去<code>H(k+1)-E</code>的能量值，否则它将得到<code>E-H(k+1)</code>的能量值。</p>
+</blockquote>
+<blockquote>
+<p>游戏的目标是到达第<code>N</code>个建筑，在这个过程中，能量值不能为负数个单位。现在的问题是机器人以多少能量值开始游戏，才可以保证成功完成游戏？</p>
+</blockquote>
+<h3 id="Description-Of-Input-2"><a href="#Description-Of-Input-2" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>第一行输入，表示一共有<code>N</code>组数据。<br>第二行是<code>N</code>个空格分隔的整数，<code>H1</code>，<code>H2</code>，<code>H3</code>，...，<code>Hn</code>代表建筑物的高度。</p>
+</blockquote>
+<h3 id="Description-Of-Output-2"><a href="#Description-Of-Output-2" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>输出一个单独的数表示完成游戏所需的最少单位的初始能量。</p>
+</blockquote>
+<h3 id="Example-Of-I-O-2"><a href="#Example-Of-I-O-2" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3 4 3 2 4</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>e.g.2</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 4 4</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>e.g.3</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 6 4</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Solution-Of-Question-2"><a href="#Solution-Of-Question-2" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
+<li>Language: C++ 14</li>
+<li>Time Complexity: </li>
+<li>Space Complexity: </li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/15/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, h;</span><br><span class="line">    <span class="keyword">float</span> minE = <span class="number">0</span>, molecule = <span class="number">0</span>, denominator = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; h;</span><br><span class="line">        molecule = molecule * <span class="number">2</span> + h;</span><br><span class="line">        denominator = denominator * <span class="number">2</span>;</span><br><span class="line">        minE = max(minE, <span class="built_in">ceil</span>(molecule / denominator));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; minE;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="旅行商问题"><a href="#旅行商问题" class="headerlink" title="旅行商问题"></a>旅行商问题</h2><ul>
+<li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
+<li>Time Limit: C/C++ 1s, Other 2s</li>
+<li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
+</ul>
+<h3 id="Description-Of-Topic-3"><a href="#Description-Of-Topic-3" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>小明目前在做一份毕业旅行的规划。打算从北京出发，分别去若干个城市，然后在回到北京，每个城市之间均乘坐高铁，且么个城市只去一次。由于经费有限，希望能够通过合理的路线安排尽可能的省一些路上的花销。给定一组城市和每对城市之间的火车票的价钱，找到每个城市只访问一次并返回起点的最小车费的花销。</p>
+</blockquote>
+<h3 id="Description-Of-Input-3"><a href="#Description-Of-Input-3" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>城市个数<code>n</code>（1 &lt; <code>n</code> &lt;= 20，包括北京）<br>城市间的车票价钱<code>n</code>行<code>n</code>列的矩阵<code>m[n][n]</code></p>
+</blockquote>
+<h3 id="Description-Of-Output-3"><a href="#Description-Of-Output-3" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>最小车费花销<code>s</code></p>
+</blockquote>
+<h3 id="Example-Of-I-O-3"><a href="#Example-Of-I-O-3" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">0 2 6 5</span><br><span class="line">2 0 4 4</span><br><span class="line">6 4 0 2</span><br><span class="line">5 4 2 0</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>该例子中，共<code>4</code>个城市，城市<code>1</code>和城市<code>1</code>的车费为 0，城市 <code>1</code>和城市<code>2</code>之间的车费为 2，城市<code>1</code>和城市<code>3</code>之间的车费为 6，城市<code>1</code>和城市<code>4</code>之间的车费为 5，依次类推。假设任意两个城市直接均有单程票可购买，且票价在1000元以内，无需考虑极端情况。</p>
+</blockquote>
+<hr>
+<h3 id="Solution-Of-Question-3"><a href="#Solution-Of-Question-3" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
+<li>Language: C++ 14</li>
+<li>Time Complexity: </li>
+<li>Space Complexity: <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 2019/4/15.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> **costArray;</span><br><span class="line"><span class="keyword">int</span> *city;</span><br><span class="line"><span class="keyword">int</span> minCost = INT32_MAX;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mDelete</span><span class="params">(<span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mTSP</span><span class="params">(<span class="keyword">int</span>, <span class="keyword">int</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    city = <span class="keyword">new</span> <span class="keyword">int</span>[n + <span class="number">1</span>];</span><br><span class="line">    costArray = <span class="keyword">new</span> <span class="keyword">int</span> *[n];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        city[i] = i;</span><br><span class="line">        costArray[i] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; costArray[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mTSP(n, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; minCost;</span><br><span class="line">    mDelete(n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mDelete</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n--) &#123;</span><br><span class="line">        <span class="keyword">delete</span>[]costArray[n];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span>[]costArray;</span><br><span class="line">    <span class="keyword">delete</span>[]city;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">mTSP</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s == n) &#123;</span><br><span class="line">        <span class="keyword">int</span> cost = <span class="number">0</span>;</span><br><span class="line">        city[n] = city[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; city[i] &lt;&lt; " ";</span></span><br><span class="line">            cost += costArray[city[i]][city[i + <span class="number">1</span>]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; city[n] &lt;&lt; "    " &lt;&lt; cost &lt;&lt; endl;</span></span><br><span class="line">        minCost = min(minCost, cost);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = s; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> t = city[i];</span><br><span class="line">            city[i] = city[s];</span><br><span class="line">            city[s] = t;</span><br><span class="line">            mTSP(n, s + <span class="number">1</span>);</span><br><span class="line">            city[s] = city[i];</span><br><span class="line">            city[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="过河问题"><a href="#过河问题" class="headerlink" title="过河问题"></a>过河问题</h2><ul>
+<li>Sourcce: 字节跳动19春招研发第二次在线笔试-C卷</li>
+<li>Time Limit: C/C++ 1s, Other 2s</li>
+<li>Space Limit: C/C++ 32768k, Other 65536k</li>
+<li>64bit IO Format: %lld</li>
+</ul>
+<h3 id="Description-Of-Topic-4"><a href="#Description-Of-Topic-4" class="headerlink" title="Description Of Topic"></a>Description Of Topic</h3><blockquote>
+<p>有<code>n</code>个人要过河，但河边只有<code>1</code>只船。船每次最多坐<code>3</code>个人，每个人单独坐船过河的时间为<code>a[i]</code>，多人一起坐船时，过河时间为他们所有人中最长的过河时间。</p>
+</blockquote>
+<blockquote>
+<p>为了安全起见，要求每次至少有<code>2</code>个人才能过河。问最短需要多少时间才能把所有人送过河。</p>
+</blockquote>
+<h3 id="Description-Of-Input-4"><a href="#Description-Of-Input-4" class="headerlink" title="Description Of Input"></a>Description Of Input</h3><blockquote>
+<p>第一行是整数<code>m</code>，表示测试样例个数。</p>
+</blockquote>
+<blockquote>
+<p>每个测试用例的第一行是一个正整数<code>n</code>，表示参加过河的人数（<code>2 &lt;= n &lt;= 100000</code>）。</p>
+</blockquote>
+<blockquote>
+<p>第二行是<code>n</code>个正整数<code>a[i]</code>（<code>0 &lt; a[1] &lt; 100000</code>）,表示<code>n</code>个人单独过河的时间。</p>
+</blockquote>
+<h3 id="Description-Of-Output-4"><a href="#Description-Of-Output-4" class="headerlink" title="Description Of Output"></a>Description Of Output</h3><blockquote>
+<p>对每个测试样例，输出最少的过河时间。</p>
+</blockquote>
+<h3 id="Example-Of-I-O-4"><a href="#Example-Of-I-O-4" class="headerlink" title="Example Of I/O"></a>Example Of I/O</h3><hr>
+<p><strong>e.g.1</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">4</span><br><span class="line">1 1 1 1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Solution-Of-Question-4"><a href="#Solution-Of-Question-4" class="headerlink" title="Solution Of Question"></a>Solution Of Question</h3><ul>
+<li>Language: C++ 14</li>
+<li>Time Complexity: </li>
+<li>Space Complexity:</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// Created by DRY on 4/16/19.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n, minT, t;</span><br><span class="line">    <span class="keyword">int</span> *a;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; m;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">        minT = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a[i] &lt; a[j]) &#123;</span><br><span class="line">                        t = a[i];</span><br><span class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> k = i; k &gt;= j + <span class="number">1</span>; k--) &#123;</span><br><span class="line">                            a[k] = a[k - <span class="number">1</span>];</span><br><span class="line">                        &#125;</span><br><span class="line">                        a[j] = t;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; <span class="number">3</span>; i = i - <span class="number">2</span>) &#123;</span><br><span class="line">            minT += min(a[<span class="number">1</span>] + a[i - <span class="number">1</span>] + a[<span class="number">1</span>] + a[i], a[<span class="number">2</span>] + a[<span class="number">0</span>] + a[i] + a[<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        minT += a[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span> || n == <span class="number">3</span>) &#123;</span><br><span class="line">            minT = a[n - <span class="number">1</span>];</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">4</span>) &#123;</span><br><span class="line">            minT = a[<span class="number">1</span>] + a[<span class="number">2</span>] + a[<span class="number">3</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; minT &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">delete</span>[] a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://blog.csdn.net/jimo_lonely/article/details/51581190" target="_blank" rel="noopener">全排列与回溯解旅行商问题</a></li>
+<li><a href="https://www.jianshu.com/p/84608db757b4" target="_blank" rel="noopener">算法 - 过桥问题与过河问题</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM-C-C/" rel="tag"># ACM C C++</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/random-captcha/" rel="next" title="Generate Random Captcha">
+                <i class="fa fa-chevron-left"></i> Generate Random Captcha
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/18/algorithm-question-2/" rel="prev" title="Programing Question From DolphinDB">
+                Programing Question From DolphinDB <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
+                alt="Graycat" />
+            
+              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变身程序员"><span class="nav-number">1.</span> <span class="nav-text">变身程序员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic"><span class="nav-number">1.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input"><span class="nav-number">1.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output"><span class="nav-number">1.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O"><span class="nav-number">1.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question"><span class="nav-number">1.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征提取"><span class="nav-number">2.</span> <span class="nav-text">特征提取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-1"><span class="nav-number">2.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-1"><span class="nav-number">2.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-1"><span class="nav-number">2.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-1"><span class="nav-number">2.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-1"><span class="nav-number">2.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器人跳跃"><span class="nav-number">3.</span> <span class="nav-text">机器人跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-2"><span class="nav-number">3.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-2"><span class="nav-number">3.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-2"><span class="nav-number">3.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-2"><span class="nav-number">3.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-2"><span class="nav-number">3.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旅行商问题"><span class="nav-number">4.</span> <span class="nav-text">旅行商问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-3"><span class="nav-number">4.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-3"><span class="nav-number">4.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-3"><span class="nav-number">4.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-3"><span class="nav-number">4.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-3"><span class="nav-number">4.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过河问题"><span class="nav-number">5.</span> <span class="nav-text">过河问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Topic-4"><span class="nav-number">5.1.</span> <span class="nav-text">Description Of Topic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Input-4"><span class="nav-number">5.2.</span> <span class="nav-text">Description Of Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Description-Of-Output-4"><span class="nav-number">5.3.</span> <span class="nav-text">Description Of Output</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Of-I-O-4"><span class="nav-number">5.4.</span> <span class="nav-text">Example Of I/O</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution-Of-Question-4"><span class="nav-number">5.5.</span> <span class="nav-text">Solution Of Question</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">6.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graycat</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
