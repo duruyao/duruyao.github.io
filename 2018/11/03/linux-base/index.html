@@ -118,7 +118,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://graycat0918.github.io/2018/11/03/linux-base/linux.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/11/03/linux-base/result.png">
-<meta property="og:updated_time" content="2019-03-27T09:32:17.649Z">
+<meta property="og:updated_time" content="2019-05-20T03:17:12.580Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Basic Operation Writing For Ubuntu And Organizing For Myself">
 <meta name="twitter:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
@@ -343,7 +343,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-03-27 17:32:17" itemprop="dateModified" datetime="2019-03-27T17:32:17+08:00">2019-03-27</time>
+                <time title="Modified: 2019-05-20 11:17:12" itemprop="dateModified" datetime="2019-05-20T11:17:12+08:00">2019-05-20</time>
               
             
           </span>
@@ -412,10 +412,22 @@
 <h3 id="General-Mode"><a href="#General-Mode" class="headerlink" title="General Mode"></a>General Mode</h3><p><strong>Press <code>Esc</code> to start general mode.</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">u                       # roll back operation</span><br><span class="line">Ctrl r	                # roll forward operation</span><br><span class="line">Ctrl f	                # move forward page</span><br><span class="line">Ctrl b                  # move back page</span><br><span class="line">Ctrl u 	                # move up view</span><br><span class="line">Ctrl d	                # move down view</span><br><span class="line">&lt;n&gt;x	                # cut(delete) n characters from position of cursor</span><br><span class="line">&lt;n&gt;dd	                # cut(delete) n line from line of cursor</span><br><span class="line">&lt;n&gt;yy	                # copy n line from line of cursor</span><br><span class="line">p                       # paste to the back of cursor</span><br><span class="line">r                       # replace character in position of cursor</span><br><span class="line">Shift + Cursor          # select multiple lines</span><br><span class="line">Shift Ctrl + Cursor 	# select rectangle area</span><br><span class="line"></span><br><span class="line">:                       # start command mode</span><br><span class="line">Ctrl + V                # start visual block mode</span><br></pre></td></tr></table></figure></p>
 <h3 id="Command-Mode"><a href="#Command-Mode" class="headerlink" title="Command Mode"></a>Command Mode</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:wq                     # save and quit</span><br><span class="line">:q!                     # no save and force to quit</span><br><span class="line">:set nu                 # show lines numner</span><br><span class="line">:&lt;m&gt;,&lt;n&gt;d               # cut(delete) m to n lines</span><br><span class="line">:&lt;m&gt;,&lt;n&gt;y               # copy m to n lines</span><br></pre></td></tr></table></figure>
 <h3 id="Visual-Block-Mode"><a href="#Visual-Block-Mode" class="headerlink" title="Visual Block Mode"></a>Visual Block Mode</h3><p><strong><font color="red">[*] Caution: </font>It important that make sure your position of cursor is suitable before starting visual block mode.</strong></p>
+<p><strong>Multi-line comment.</strong></p>
 <ul>
-<li><p><strong>Multi-line comment</strong><br>First, choosing code by Press <code>Up</code> / <code>Down</code>.<br>Second, press <code>I</code> before typing <code>//</code> / <code>#</code>.<br>Last, pressing <code>Esc</code> again is necessary.</p>
+<li><strong>Multi-line comment</strong><ul>
+<li>choosing code by Press <code>Up</code> / <code>Down</code>.</li>
+<li>press <code>I</code> before typing <code>//</code> / <code>#</code>.</li>
+<li>pressing <code>Esc</code> again is necessary.</li>
+</ul>
 </li>
-<li><p><strong>Cancel multi-line comment</strong><br>First, choosing code by Press <code>Up</code> / <code>Down</code>.<br>Second, press <code>Left</code> / <code>Right</code> to include <code>//</code> / <code>#</code>.<br>Last, pressing <code>d</code>.</p>
+</ul>
+<p><strong>Cancel multi-line comment.</strong></p>
+<ul>
+<li><strong>Cancel multi-line comment</strong><ul>
+<li>choosing code by Press <code>Up</code> / <code>Down</code>.</li>
+<li>press <code>Left</code> / <code>Right</code> to include <code>//</code> / <code>#</code>.</li>
+<li>pressing <code>d</code>.</li>
+</ul>
 </li>
 </ul>
 <h2 id="Modify-System-Font"><a href="#Modify-System-Font" class="headerlink" title="Modify System Font"></a>Modify System Font</h2><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><p><strong>Install font file, take <code>consola</code> as an example.<br><a href="https://code.google.com/archive/p/uigroupcode/downloads" target="_blank" rel="noopener">Download suitable font file from here to linux.</a></strong></p>
