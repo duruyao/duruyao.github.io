@@ -108,46 +108,33 @@
 
 
 
-  <meta name="description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
-<meta name="keywords" content="Windows Python">
+  <meta name="description" content="1. Allocate  客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口  若该请求不含验证信息，服务端回复error responce  客户端收到错误请求的回复后，携带验证信息再次请求  若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果  客户端A获得一个公网IP">
+<meta name="keywords" content="P2P TURN Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原创下载小工具get-tool使用说明书">
-<meta property="og:url" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/index.html">
+<meta property="og:title" content="Turnserver Working Mechanism">
+<meta property="og:url" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/index.html">
 <meta property="og:site_name" content="Graycat">
-<meta property="og:description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
+<meta property="og:description" content="1. Allocate  客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口  若该请求不含验证信息，服务端回复error responce  客户端收到错误请求的回复后，携带验证信息再次请求  若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果  客户端A获得一个公网IP">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-success.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/install-module.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/path-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/path-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/command-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/4.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u4.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u5.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u6.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u7.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u8.png">
-<meta property="og:updated_time" content="2019-04-15T03:09:19.198Z">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/allocate.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/forward.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/refresh.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/send_data.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/create_permission.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/channel_data_messages.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/channel_bind.png">
+<meta property="og:updated_time" content="2019-06-30T11:53:29.358Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原创下载小工具get-tool使用说明书">
-<meta name="twitter:description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
-<meta name="twitter:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/1.png">
+<meta name="twitter:title" content="Turnserver Working Mechanism">
+<meta name="twitter:description" content="1. Allocate  客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口  若该请求不含验证信息，服务端回复error responce  客户端收到错误请求的回复后，携带验证信息再次请求  若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果  客户端A获得一个公网IP">
+<meta name="twitter:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/allocate.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://graycat0918.github.io/2018/06/24/get-tool-inst/"/>
+  <link rel="canonical" href="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/"/>
 
 
 
@@ -157,7 +144,7 @@
   };
 </script>
 
-  <title>原创下载小工具get-tool使用说明书 | Graycat</title>
+  <title>Turnserver Working Mechanism | Graycat</title>
   
 
 
@@ -302,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2018/06/24/get-tool-inst/">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graycat">
@@ -319,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原创下载小工具get-tool使用说明书
+          <h1 class="post-title" itemprop="name headline">Turnserver Working Mechanism
               
             
           </h1>
@@ -344,24 +331,12 @@
                 
               
 
-              <time title="Created: 2018-06-24 11:22:24" itemprop="dateCreated datePublished" datetime="2018-06-24T11:22:24+08:00">2018-06-24</time>
+              <time title="Created: 2019-06-30 19:48:52 / Modified: 19:53:29" itemprop="dateCreated datePublished" datetime="2019-06-30T19:48:52+08:00">2019-06-30</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-15 11:09:19" itemprop="dateModified" datetime="2019-04-15T11:09:19+08:00">2019-04-15</time>
               
             
           </span>
@@ -394,113 +369,87 @@
       
 
       
-        <blockquote>
-<p><strong>谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。</strong><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;—— 我说的</p>
-</blockquote>
-<h2 id="下载get-tool"><a href="#下载get-tool" class="headerlink" title="下载get-tool"></a>下载get-tool</h2><p><code>get-tool</code> 安装包链接如下：</p>
+        <h2 id="1-Allocate"><a href="#1-Allocate" class="headerlink" title="1. Allocate"></a>1. Allocate</h2><p><img src="allocate.png" alt=""></p>
 <ul>
-<li><a href="https://drive.google.com/open?id=1Xp2v2uyz-b8drLy3KAEu48xQdrWcFipe" target="_blank" rel="noopener">Google Drive</a></li>
-<li><a href="https://1drv.ms/f/s!ArbZ01SuUv5M2B0_ea9EAQ3qn8tX" target="_blank" rel="noopener">OneDrive</a></li>
-<li><a href="https://www.jianguoyun.com/p/DXsvZZsQ1qf_BhjX1GY" target="_blank" rel="noopener">坚果云</a></li>
-<li><a href="https://share.weiyun.com/5HwmTcM" target="_blank" rel="noopener">微云</a>       </li>
-</ul>
-<p>任选<strong>其一</strong>，自行下载<strong>最新</strong>版本，并解压到<strong>合适</strong>的位置</p>
-<h2 id="系统-amp-环境"><a href="#系统-amp-环境" class="headerlink" title="系统&amp;环境"></a>系统&amp;环境</h2><blockquote>
-<p>本软件基于 <code>Windows</code> 操作系统，依赖 <code>python-3.X</code> 环境，若您的 <code>Windows</code> 无 <code>python-3.X</code>，请先安装 <code>python-3.X</code> ,已有该环境的用户可直接跳到步骤 <code>3 安装模块</code>。<br>特附上<a href="https://share.weiyun.com/52UCsyb" target="_blank" rel="noopener">python-3.6.5安装包下载链接</a>，当然更希望你从<a href="https://www.python.org/" target="_blank" rel="noopener">python官网</a>中下载适合自己的版本，同样自行保存到本地合适的位置。</p>
-</blockquote>
-<ol>
-<li><strong>安装python</strong></li>
-</ol>
-<p><img src="1.png" alt=""></p>
-<ol start="2">
-<li><strong>按图勾选</strong></li>
-</ol>
-<p><img src="py-install-1.png" alt=""></p>
-<ol start="3">
-<li><strong>等待安装</strong></li>
-</ol>
-<p><img src="py-install-2.png" alt=""></p>
-<ol start="4">
-<li><strong>关闭向导</strong></li>
-</ol>
-<p><img src="py-install-3.png" alt=""></p>
-<ol start="5">
-<li><strong>检验安装</strong></li>
-</ol>
-<p><img src="py-success.png" alt=""></p>
-<h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><blockquote>
-<p>本软件在 <code>python标准库</code> 基础上还依赖几个第三方模块，具体安装步骤已经写成脚本并转化为可执行文件 <code>install.exe</code></p>
-</blockquote>
-<ol>
-<li><strong>双击目录下的install.exe</strong></li>
-</ol>
-<p><img src="2.png" alt=""></p>
-<ol start="2">
-<li><strong>按照提示复制且仅复制 <code>红色边框</code> 内的信息</strong></li>
-</ol>
-<p><img src="install-module.png" alt=""></p>
-<ol start="3">
-<li><strong>添加环境变量-1</strong></li>
-</ol>
-<p><img src="path-1.png" alt=""></p>
-<ol start="4">
-<li><strong>添加环境变量-2</strong></li>
-</ol>
-<p><img src="path-2.png" alt=""></p>
-<h2 id="使用详情"><a href="#使用详情" class="headerlink" title="使用详情"></a>使用详情</h2><ol>
-<li><strong>打开 <code>命令行提示窗口</code> 的三种方法(任选其一,推荐第一种)</strong></li>
-</ol>
-<ul>
-<li>Win10:        <code>WIN+X</code> 弹出menu后键入 <code>A</code></li>
-<li>Win10:        <code>WIN+X</code> 弹出menu后键入 <code>C</code></li>
-<li>Win7/Win10:   <code>WIN+R</code> 然后输入 <code>cmd</code></li>
-</ul>
-<p><img src="command-1.png" alt=""></p>
-<ol start="2">
-<li><strong>命令行中输入 <code>get-more</code> 获取用法</strong></li>
-</ol>
-<p><img src="3.png" alt=""></p>
-<ol start="3">
-<li><strong>使用效果大概这样</strong></li>
-</ol>
-<p><img src="4.png" alt=""></p>
-<ol start="4">
-<li><strong>可获得的 <code>网站-网址-下载方式</code> 如下</strong></li>
-</ol>
-<ul>
-<li><p>全民K歌-歌手URL-批量下载<br><img src="u1.png" alt=""></p>
+<li><p>客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口</p>
 </li>
-<li><p>全民K歌-歌曲URL-单曲下载<br><img src="u2.png" alt=""></p>
+<li><p>若该请求不含验证信息，服务端回复error responce</p>
 </li>
-<li><p>网易云音乐-歌曲URL-单曲下载<br><img src="u3.png" alt=""></p>
+<li><p>客户端收到错误请求的回复后，携带验证信息再次请求</p>
 </li>
-<li><p>网易云音乐-歌手URL-批量下载<br><img src="u4.png" alt=""></p>
+<li><p>若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果</p>
 </li>
-<li><p>QQ音乐-歌手URL-批量下载<br><img src="u5.png" alt=""></p>
-</li>
-<li><p>QQ音乐-歌曲URL-单曲下载<br><img src="u6.png" alt=""></p>
-</li>
-<li><p>Bilibili-视频URL-视频下载<br><img src="u7.png" alt=""></p>
-</li>
-<li><p>Youku-视频URL-视频下载<br><img src="u8.png" alt=""></p>
+<li><p>客户端A获得一个公网IP作为relay address，所有传递给A的信息都要发送到此地址</p>
 </li>
 </ul>
-<h2 id="Declarations"><a href="#Declarations" class="headerlink" title="Declarations"></a>Declarations</h2><blockquote>
-<ol>
-<li><strong>三家热门网站的音乐单曲与批量下载功能是笔者原创，视频下载功能的贡献来自<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">github的开源项目you-get</a>,同时也是笔者灵感的来源与效法的对象</strong></li>
-<li><strong>使用过程中出现任何bug欢迎反馈，邮箱如下</strong></li>
-</ol>
+<h2 id="2-Forward"><a href="#2-Forward" class="headerlink" title="2. Forward"></a>2. Forward</h2><p><img src="forward.png" alt=""></p>
 <ul>
-<li><a href="mailto:graycat0918@gmail.com" target="_blank" rel="noopener">graycat0918@gmail.com</a></li>
-<li><a href="mailto:duruyao@qq.com" target="_blank" rel="noopener">duruyao@qq.com</a></li>
+<li><p>与客户端A建立连接的其他客户端，应先将信息发送到A的relay端口，再由TURN服务器通过其他端口发送给A</p>
+</li>
+<li><p>A回复信息时，原路返回</p>
+</li>
 </ul>
-<ol start="3">
-<li><strong>强烈建议将Windows shell（或命令提示窗口）设置为黑底绿字，绿屏效应还是很酷的</strong></li>
-</ol>
-</blockquote>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><blockquote>
-<p><strong>本软件仅供python网络爬虫初学者入门学习借鉴之用，不得用于任何商业用途，不得传播盗版资源，不得侵犯持有版权的公司和创作者的任何利益......</strong></p>
-</blockquote>
+<h2 id="3-Refresh"><a href="#3-Refresh" class="headerlink" title="3. Refresh"></a>3. Refresh</h2><p><img src="refresh.png" alt=""></p>
+<ul>
+<li><p>服务端分配的relay address具有一定的时长，为了长期有效，客户端需发送refresh请求刷新剩余时间</p>
+</li>
+<li><p>服务端响应消息中含有Life Time属性，表示relay address剩余时间</p>
+</li>
+<li><p>客户端可以在存活期内调用REFRESH请求</p>
+</li>
+<li><p>服务端受到REFRESH请求后，刷新relay address剩余时间</p>
+</li>
+<li><p>当REFRESH请求中的LifeTime属性为0时，Client主动要求关闭relay地址</p>
+</li>
+</ul>
+<h2 id="4-Send-Data-Mechanism"><a href="#4-Send-Data-Mechanism" class="headerlink" title="4. Send / Data Mechanism"></a>4. Send / Data Mechanism</h2><p><img src="send_data.png" alt=""></p>
+<ul>
+<li><p>client与peer通过TURN server有两种方式交换信息，一种是通过Send/Data Indication，一种是通过Channels </p>
+</li>
+<li><p>Send Indication告知TURN服务器哪个peer接受信息，Data Indication告知client信息来自于哪个peer</p>
+</li>
+<li><p>Send/Data Indication都对原始裸数据包进行封装，即添加STUN头部，如(0),(8)</p>
+</li>
+<li><p>其中Send Indication含XOR-PEER-ADDRESS和DATA属性，前者指定peer的反射地址，后者指定信息</p>
+</li>
+<li><p>再次其强调，Client A发送信息给Peer B要先发送到B的relay address</p>
+</li>
+</ul>
+<p><img src="create_permission.png" alt=""></p>
+<ul>
+<li><p>Send/Data Indication是不支持验证的，为了防止攻击, TURN要求client在给对等端发送indication之前先安装一个到对等端的许可</p>
+</li>
+<li><p>关于创建许可，Client A发送关于Peer B的create permission request到TURN服务器，并收到创建成功的responce</p>
+</li>
+</ul>
+<h2 id="5-Channels-Mechanism"><a href="#5-Channels-Mechanism" class="headerlink" title="5. Channels Mechanism"></a>5. Channels Mechanism</h2><p><img src="channel_data_messages.png" alt=""></p>
+<ul>
+<li><p>信道机制是client与peer通过TURN server有两种方式交换信息的另一种方式</p>
+</li>
+<li><p>Send/Data Indication中多加的36字节信息会加重客户端和服务端之间的带宽压力，所以该方法使用另一种数据包格式ChannelData message</p>
+</li>
+<li><p>ChannelData message不使用STUN头部，使用一个4字节的头部,包含了一个称之为信道号的值(channel number)，每个信道号都与一个特定的Peer绑定，作为对等端地址的一个记号</p>
+</li>
+</ul>
+<p><img src="channel_bind.png" alt=""></p>
+<ul>
+<li><p>要将一个信道与对等端绑定,Client发送一个信道绑定请求到服务器,并且指定一个未绑定的信道号以及对等端的地址信息</p>
+</li>
+<li><p>信道绑定存在默认时间，Client可以通过重新发送刷新请求来刷新剩余时间</p>
+</li>
+<li><p>和Allocation不同的是，信道绑定没有直接删除绑定的方法，只能等待其超时自动失效</p>
+</li>
+</ul>
+<h2 id="6-Reference"><a href="#6-Reference" class="headerlink" title="6. Reference"></a>6. Reference</h2><ul>
+<li><p><a href="https://tools.ietf.org/id/draft-ietf-behave-turn-08.html" target="_blank" rel="noopener">TURN: Relay Extensions to STUN</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26796476" target="_blank" rel="noopener">P2P通信原理与实现</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26797664" target="_blank" rel="noopener">P2P通信标准协议之STUN</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/26797422" target="_blank" rel="noopener">P2P通信标准协议之TURN</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -521,7 +470,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Windows-Python/" rel="tag"># Windows Python</a>
+            <a href="/tags/P2P-TURN-Linux/" rel="tag"># P2P TURN Linux</a>
           
         </div>
       
@@ -534,15 +483,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/07/seven-basic-sorting-algorithms/" rel="next" title="Seven Basic Sorting Algorithms">
+                <i class="fa fa-chevron-left"></i> Seven Basic Sorting Algorithms
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/install-python2-7x/" rel="prev" title="Windows下python2及pip的安装教程">
-                Windows下python2及pip的安装教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -709,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载get-tool"><span class="nav-number">1.</span> <span class="nav-text">下载get-tool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统-amp-环境"><span class="nav-number">2.</span> <span class="nav-text">系统&amp;环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装模块"><span class="nav-number">3.</span> <span class="nav-text">安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用详情"><span class="nav-number">4.</span> <span class="nav-text">使用详情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Declarations"><span class="nav-number">5.</span> <span class="nav-text">Declarations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remarks"><span class="nav-number">6.</span> <span class="nav-text">Remarks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Allocate"><span class="nav-number">1.</span> <span class="nav-text">1. Allocate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Forward"><span class="nav-number">2.</span> <span class="nav-text">2. Forward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Refresh"><span class="nav-number">3.</span> <span class="nav-text">3. Refresh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Send-Data-Mechanism"><span class="nav-number">4.</span> <span class="nav-text">4. Send / Data Mechanism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Channels-Mechanism"><span class="nav-number">5.</span> <span class="nav-text">5. Channels Mechanism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Reference"><span class="nav-number">6.</span> <span class="nav-text">6. Reference</span></a></li></ol></div>
             
 
           </div>
