@@ -66,6 +66,7 @@ set mouse=a         " Enable the use of the mouse.
 filetype plugin indent on
 syntax on
 
+" If don't need template, the following 3 lines of code should be commented.
 autocmd BufNewFile *.c 0r ~/.vim/template/template.c        " Template for .c file
 autocmd BufNewFile *.cpp 0r ~/.vim/template/template.cpp    " Template for .cpp file
 autocmd BufNewFile *.cxx 0r ~/.vim/template/template.cxx    " Template for .cxx file
