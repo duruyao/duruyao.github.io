@@ -22,8 +22,8 @@ int main(int argc, char **argv) {
 }
 
 void handle_opt(int argc, char **argv) {
-    while((opt = getopt(argc, argv, "L")) != -1) {
-        switch(opt) {
+    while ((opt = getopt(argc, argv, "L")) != -1) {
+        switch (opt) {
             case 'L':
                 cout << LICENSE;
                 break;
