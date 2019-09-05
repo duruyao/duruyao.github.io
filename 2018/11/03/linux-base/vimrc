@@ -1,4 +1,3 @@
-" ~/.vimrc
 set tabstop=4       " Number of spaces that a <Tab> in the file counts for.
  
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent.
@@ -21,7 +20,7 @@ set showmatch       " When a bracket is inserted, briefly jump to the matching
                     " one. The jump is only done if the match can be seen on the
                     " screen. The time to show the match can be set with
                     " 'matchtime'.
- 
+  
 set hlsearch        " When there is a previous search pattern, highlight all
                     " its matches.
  
@@ -45,7 +44,7 @@ set autoindent      " Copy indent from current line when starting a new line
 set textwidth=120   " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
  
-set formatoptions=c,q,r,t " This is a sequence of letters which describes how
+set formatoptions=c,q,r,t   " This is a sequence of letters which describes how
                     " automatic formatting is to be done.
                     "
                     " letter    meaning when present in 'formatoptions'
@@ -63,10 +62,41 @@ set ruler           " Show the line and column number of the cursor position,
  
 set mouse=a         " Enable the use of the mouse.
  
-filetype plugin indent on
 syntax on
+execute pathogen#infect()
+filetype plugin indent on
 
-" If don't need template, the following 3 lines of code should be commented.
-autocmd BufNewFile *.c 0r ~/.vim/template/template.c        " Template for .c file
-autocmd BufNewFile *.cpp 0r ~/.vim/template/template.cpp    " Template for .cpp file
-autocmd BufNewFile *.cxx 0r ~/.vim/template/template.cxx    " Template for .cxx file
+
+"" Configurations Of NERDTree
+
+map <F2> :NERDTreeToggle<CR>                
+                                            " Set 'F2' as switcher.
+
+let g:NERDTreeDirArrowExpandable = '+'      " Modified logo of tree.
+
+let g:NERDTreeDirArrowCollapsible = '-'
+
+let g:NERDTreeWinPos='left'                 " Set position of window.
+
+let g:NERDTreeSize=30                       " Set size of window.
+
+let g:NERDTreeShowLineNumbers=1             " Show line numbers.
+
+let g:NERDTreeHidden=0                      " Show hidden file.
+
+autocmd vimenter * if !argc() | NERDTree | endif    
+                                            " Open NERDTree when start vim but no file.
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+                                            " Auto close if NERDTree is only window.
+
+"autocmd vimenter * NERDTree                " Auto open NERDTree when start vim.
+
+
+"" Set Template For Some Files
+
+autocmd BufNewFile *.c 0r ~/.vim/template/template.c        
+
+autocmd BufNewFile *.cpp 0r ~/.vim/template/template.cpp
+
+autocmd BufNewFile *.cxx 0r ~/.vim/template/template.cxx
