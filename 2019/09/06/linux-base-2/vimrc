@@ -61,6 +61,10 @@ set ruler           " Show the line and column number of the cursor position,
                     " separated by a comma.
  
 set mouse=a         " Enable the use of the mouse.
+
+set background=dark " Make color of vim is same inside Gnome terminal and inside tmux terminal.
+
+set t_Co=256
  
 syntax on
 execute pathogen#infect()
@@ -80,17 +84,17 @@ let g:NERDTreeWinPos='left'                 " Set position of window.
 
 let g:NERDTreeSize=30                       " Set size of window.
 
-let g:NERDTreeShowLineNumbers=1             " Show line numbers.
+let g:NERDTreeShowLineNumbers=0             " Show line numbers.
 
 let g:NERDTreeHidden=0                      " Show hidden file.
 
 autocmd vimenter * if !argc() | NERDTree | endif    
                                             " Open NERDTree when start vim but no file.
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
                                             " Auto close if NERDTree is only window.
 
-"autocmd vimenter * NERDTree                " Auto open NERDTree when start vim.
+" autocmd vimenter * NERDTree               " Auto open NERDTree when start vim.
 
 
 "" Set Template For Some Files
@@ -100,3 +104,4 @@ autocmd BufNewFile *.c 0r ~/.vim/template/template.c
 autocmd BufNewFile *.cpp 0r ~/.vim/template/template.cpp
 
 autocmd BufNewFile *.cxx 0r ~/.vim/template/template.cxx
+

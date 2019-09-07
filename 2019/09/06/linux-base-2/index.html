@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Basic Configuration And Operation (2)">
+<meta property="og:url" content="https://graycat0918.github.io/2019/09/06/linux-base-2/index.html">
+<meta property="og:site_name" content="Graycat">
+<meta property="og:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/linux.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/cmd_prompt.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/ide_linux.png">
+<meta property="og:updated_time" content="2019-09-07T02:25:43.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux Basic Configuration And Operation (2)">
+<meta name="twitter:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
+<meta name="twitter:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/linux.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://graycat0918.github.io/2019/09/06/linux-base-2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Linux Basic Configuration And Operation (2) | Graycat</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Graycat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2019/09/06/linux-base-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graycat">
+      <meta itemprop="description" content="To be, or not to be.">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Graycat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux Basic Configuration And Operation (2)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-09-06 19:39:54" itemprop="dateCreated datePublished" datetime="2019-09-06T19:39:54+08:00">2019-09-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-09-07 10:25:43" itemprop="dateModified" datetime="2019-09-07T10:25:43+08:00">2019-09-07</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><strong>Some people have told me they don&#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.</strong><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;—— Linus Torvalds</p>
+</blockquote>
+<p><img src="linux.png" alt="linux.png"></p>
+<p><strong>This blog is written for Debian/Ubuntu, and it is not suit to other Linux distribution, such as Fedora/CentOS.</strong></p>
+<h2 id="Text-Editor-Vim"><a href="#Text-Editor-Vim" class="headerlink" title="Text Editor - Vim"></a>Text Editor - Vim</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><p>Install vim by apt.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt install vim</span><br></pre></td></tr></table></figure>
+<p>Set some <a href="https://harttle.land/2013/11/08/vim-config.html" target="_blank" rel="noopener">basic configuration</a> for vim by modifying &#39;~/.vimrc&#39;.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vi ~/.vimrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> tabstop=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> <span class="built_in">shiftwidth</span>=<span class="number">4</span></span><br><span class="line"><span class="keyword">set</span> expandtab</span><br><span class="line"><span class="keyword">set</span> smarttab</span><br><span class="line"><span class="keyword">set</span> showcmd</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">set</span> showmatch</span><br><span class="line"><span class="keyword">set</span> hlsearch</span><br><span class="line"><span class="keyword">set</span> incsearch</span><br><span class="line"><span class="keyword">set</span> ignorecase</span><br><span class="line"><span class="keyword">set</span> smartcase</span><br><span class="line"><span class="keyword">set</span> backspace=<span class="number">2</span></span><br><span class="line"><span class="keyword">set</span> autoindent</span><br><span class="line"><span class="keyword">set</span> textwidth=<span class="number">120</span></span><br><span class="line"><span class="keyword">set</span> formatoptions=<span class="keyword">c</span>,q,r,t</span><br><span class="line"><span class="keyword">set</span> ruler</span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span></span><br><span class="line"><span class="keyword">syntax</span> <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+<p>About &#39;Tab&#39;, choose one from the following two method depending a specific situation, such as editing Makefile.</p>
+<ul>
+<li>Replace &#39;Tab&#39; with 4 spaces.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set expandtab</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Change length of &#39;Tab&#39; to length of 4 spaces.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set noexpandtab</span><br></pre></td></tr></table></figure>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><p>Edit a text file by vim.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim filename</span><br></pre></td></tr></table></figure></p>
+<p>Press <code>Esc</code> to start <strong>General Mode</strong>.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">u                       # roll back operation</span><br><span class="line">Ctrl r	                # roll forward operation</span><br><span class="line">Ctrl f	                # move forward page</span><br><span class="line">Ctrl b                  # move back page</span><br><span class="line">Ctrl u 	                # move up view</span><br><span class="line">Ctrl d	                # move down view</span><br><span class="line">&lt;n&gt;x	                # cut(delete) n characters from position of cursor</span><br><span class="line">&lt;n&gt;dd	                # cut(delete) n line from line of cursor</span><br><span class="line">&lt;n&gt;yy	                # copy n line from line of cursor</span><br><span class="line">p                       # paste to the back of cursor</span><br><span class="line">r                       # replace character in position of cursor</span><br><span class="line">Shift + Cursor          # select multiple lines</span><br><span class="line">Shift Ctrl + Cursor 	# select rectangle area</span><br><span class="line">Ctrl + W, Shift + &lt;     # move the current window to left</span><br><span class="line">Ctrl + W, Shift + &gt;     # move the current window to right</span><br><span class="line"></span><br><span class="line">:                       # start Command Mode</span><br><span class="line">Ctrl + V                # start Visual Block Mode</span><br></pre></td></tr></table></figure></p>
+<p>Press <code>:</code> in General Mode to start <strong>Command Mode</strong>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:wq                     # save and quit</span><br><span class="line">:q!                     # no save and force to quit</span><br><span class="line">:set nu                 # show lines numner</span><br><span class="line">:&lt;m&gt;,&lt;n&gt;d               # cut(delete) m to n lines</span><br><span class="line">:&lt;m&gt;,&lt;n&gt;y               # copy m to n lines</span><br><span class="line">:s/&lt;str_1&gt;/&lt;str_2&gt;/g    # replace str_1 with str_2 in current line</span><br><span class="line">:s%/&lt;str_1&gt;/&lt;str_2&gt;/g   # replace str_1 with str_2 in every line</span><br><span class="line">:vs [&lt;filename&gt;]        # horizontal split screen to edit file</span><br><span class="line">:sv [&lt;filename&gt;]        # vertical split screen to edit file</span><br></pre></td></tr></table></figure>
+<p>Press <code>Ctrl</code> + <code>V</code> in General Mode to start <strong>Visual Block Mode</strong>.</p>
+<p><strong>It important that make sure your position of cursor is suitable before starting visual block mode.</strong></p>
+<ul>
+<li>Multi-line comment<ul>
+<li>choosing code by Press <code>Up</code> <strong>/</strong> <code>Down</code>.</li>
+<li>press <code>I</code> before typing <code>//</code> <strong>/</strong> <code>#</code>.</li>
+<li>pressing <code>Esc</code> again is necessary.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Cancel multi-line comment<ul>
+<li>choosing code by Press <code>Up</code> <strong>/</strong> <code>Down</code>.</li>
+<li>press <code>Left</code> <strong>/</strong> <code>Right</code> to include <code>//</code> <strong>/</strong> <code>#</code>.</li>
+<li>pressing <code>d</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><p>Make some file as template file.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir ~/.vim/template/</span><br><span class="line"><span class="meta">$</span> cd ~/.vim/template/</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">template.c template.cxx template.cpp</span><br></pre></td></tr></table></figure>
+<p>Add the following codes to <code>~/.vimrc</code>.<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">autocmd</span> BufNewFile *.<span class="keyword">c</span> <span class="number">0</span>r ~/.<span class="keyword">vim</span>/template/template.<span class="keyword">c</span>        </span><br><span class="line"><span class="keyword">autocmd</span> BufNewFile *.cpp <span class="number">0</span>r ~/.<span class="keyword">vim</span>/template/template.cpp</span><br><span class="line"><span class="keyword">autocmd</span> BufNewFile *.cxx <span class="number">0</span>r ~/.<span class="keyword">vim</span>/template/template.cxx</span><br></pre></td></tr></table></figure></p>
+<h3 id="NERDTree"><a href="#NERDTree" class="headerlink" title="NERDTree"></a>NERDTree</h3><p>The NERD tree allows you to explore your filesystem and to open files and<br>directories.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</span><br><span class="line"><span class="meta">$</span> git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree</span><br></pre></td></tr></table></figure></p>
+<p>Add the following codes to <code>~/.vimrc</code>.<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">execute</span> pathogen#infect()</span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="built_in">indent</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;F2&gt;</span> :NERDTreeToggle<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeDirArrowExpandable</span> = <span class="string">'+'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeDirArrowCollapsible</span> = <span class="string">'-'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeWinPos</span>=<span class="string">'left'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeSize</span>=<span class="number">30</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeShowLineNumbers</span>=<span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeHidden</span>=<span class="number">0</span></span><br><span class="line"><span class="keyword">autocmd</span> vimenter * <span class="keyword">if</span> !argc() | NERDTree | <span class="keyword">endif</span></span><br></pre></td></tr></table></figure></p>
+<p>Press <code>F2</code> to refresh the tree directory.</p>
+<p><strong><a href="">CLick this link</a>, see more detailed info about <code>~/.vimrc</code> or download it instead of re-editing.</strong></p>
+<h2 id="Command-Prompt"><a href="#Command-Prompt" class="headerlink" title="Command Prompt"></a>Command Prompt</h2><h3 id="For-User"><a href="#For-User" class="headerlink" title="For User"></a>For User</h3><p>View configuration of bash.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim + ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>Add the following text in the last line of file <code>~/.bashrc</code>.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS1="\[\e[32;1m\][\[\e[32;1m\]\u\[\e[31;1m\]@\[\e[32;1m\]\h\[\e[37;1m\]: \[\e[34;1m\]\w\[\e[32;1m\]]\[\e[37;1m\]\\$ \[\e[0m\]"</span><br></pre></td></tr></table></figure></p>
+<p>Reload configuration.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> . ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="For-Root"><a href="#For-Root" class="headerlink" title="For Root"></a>For Root</h3><p>View configuration of bash.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> su root</span><br><span class="line"><span class="meta">#</span> vim + ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>Add the following text  in the last line of file <code>~/.bashrc</code>.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS1="\[\e[32;1m\][\[\e[32;1m\]\u\[\e[31;1m\]@\[\e[32;1m\]\h\[\e[37;1m\]: \[\e[34;1m\]\w\[\e[32;1m\]]\[\e[37;1m\]\\$ \[\e[0m\]"</span><br></pre></td></tr></table></figure></p>
+<p>Reload configuration.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> . ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p><img src="cmd_prompt.png" alt="cmd_prompt.png"></p>
+<h2 id="Terminal-Manager-Tmux"><a href="#Terminal-Manager-Tmux" class="headerlink" title="Terminal Manager - Tmux"></a>Terminal Manager - Tmux</h2><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><p>Install tmux by apt.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt install tmux</span><br></pre></td></tr></table></figure></p>
+<p>Modify configuration file &#39;~/.tmux.conf&#39;.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim ~/.tmux.conf</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bind r <span class="keyword">source</span>-<span class="keyword">file</span> ~/.tmux.<span class="keyword">conf</span></span><br><span class="line"><span class="keyword">set</span> -g prefix C-<span class="keyword">a</span></span><br><span class="line">unbind C-<span class="keyword">b</span></span><br><span class="line"><span class="keyword">set</span> -g mouse <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> -g renumber-windows <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span>-window-option -g <span class="keyword">mode</span>-<span class="built_in">keys</span> <span class="keyword">vi</span></span><br><span class="line"><span class="keyword">set</span> -g message-fg green</span><br><span class="line"><span class="keyword">set</span> -g message-bg black</span><br><span class="line"><span class="keyword">set</span> -g message-attr bright</span><br><span class="line"><span class="keyword">set</span> -g status-interval <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> -g status-justify <span class="keyword">left</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">left</span>-length <span class="number">20</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">right</span>-length <span class="number">50</span></span><br><span class="line"><span class="keyword">set</span> -g status-bg <span class="string">'#333333'</span></span><br><span class="line"><span class="keyword">set</span> -g status-fg <span class="string">'#ffffff'</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">left</span> <span class="string">'#[fg=#031dab, bg=#55bb00] S[#S] #[fg=#031dab,bg=#009c00]W[#I] #[fg=#031dab,bg=#007700]P[#P] '</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">right</span> <span class="string">'#[fg=#031dab,bg=#55bb00] [#h] #[fg=#031dab,bg=#009c00] %Y-%m-%d #[fg=#031dab,bg=#007700] %H:%M:%S '</span></span><br><span class="line"><span class="keyword">set</span> -g status-justify centre</span><br><span class="line">setw -g window-status-current-format <span class="string">'#[bg=#ff0000, fg=#ffffff, bold] W[#I] #W '</span></span><br><span class="line">setw -g window-status-format <span class="string">'#[bg=#0000ff, fg=#ffffff] W[#I] #W '</span></span><br><span class="line">setw -g monitor-activity <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> -g <span class="keyword">visual</span>-activity <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="">CLick this link</a>, see more detailed info about <code>~/.tmux.conf</code> or download it instead of re-editing.</strong></p>
+<h3 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h3><p>New session and window by using tmux.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tmux [new -s &lt;SessionName&gt; -n &lt;WindowsName&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>The following hot key is important.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Ctrl a + r                          # reload configuration</span><br><span class="line">Ctrl a + "                          # horizontal division window</span><br><span class="line">Ctrl a + %                          # vertical division window</span><br><span class="line">Ctrl a + c                          # new window</span><br><span class="line">Ctrl a + ,                          # rename window</span><br><span class="line">Ctrl a + &amp;                          # delete current window</span><br><span class="line">Ctrl a + &lt;num&gt;                      # go to num window</span><br><span class="line">Shift + Cursor                      # select multiple lines</span><br><span class="line">Shift Ctrl + Cursor                 # select rectangle area</span><br></pre></td></tr></table></figure>
+<h2 id="Compiler-GCC"><a href="#Compiler-GCC" class="headerlink" title="Compiler - GCC"></a>Compiler - GCC</h2><h2 id="Degugger-GDB"><a href="#Degugger-GDB" class="headerlink" title="Degugger - GDB"></a>Degugger - GDB</h2><h2 id="Redefine-IDE"><a href="#Redefine-IDE" class="headerlink" title="Redefine IDE"></a>Redefine IDE</h2><p><strong>Vim + Tmux + GCC + GDBTUI + Linux = Your IDE</strong></p>
+<p><img src="ide_linux.png" alt="ide_linux.png"></p>
+<h2 id="Shell-Script-Programing"><a href="#Shell-Script-Programing" class="headerlink" title="Shell Script Programing"></a>Shell Script Programing</h2><h3 id="Edit-Makefile"><a href="#Edit-Makefile" class="headerlink" title="Edit Makefile"></a>Edit Makefile</h3><p>The Grammar of Makefile is:<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">target_1 ... : prerequisites ...</span><br><span class="line">	command</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">target_2 ... : prerequisites ...</span><br><span class="line">	command</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">...     ...     ...</span><br></pre></td></tr></table></figure></p>
+<p><strong>e.g.</strong><br>Link and compile multiple files.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> ls</span><br><span class="line">declare.h   implement.cpp   main.cpp    show.cpp</span><br><span class="line"><span class="meta">$</span> vim Makefile</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">all:    lexAnalyze show clean_o</span></span><br><span class="line"></span><br><span class="line"><span class="section">lexAnalyze:   main.o implement.o</span></span><br><span class="line">    g++ main.o implement.o -o lexAnalyze</span><br><span class="line"><span class="section">main.o: main.cpp</span></span><br><span class="line">    g++ -c main.cpp -o main.o</span><br><span class="line"><span class="section">implement.o:    implement.cpp</span></span><br><span class="line">    g++ -c implement.cpp -o implement.o</span><br><span class="line"></span><br><span class="line"><span class="section">show:   show.o implement.o</span></span><br><span class="line">    g++ show.o implement.o -o show</span><br><span class="line"><span class="section">show.o: show.cpp</span></span><br><span class="line">    g++ -c show.cpp -o show.o</span><br><span class="line"></span><br><span class="line"><span class="section">clean_o:    </span></span><br><span class="line">    rm -f *.o</span><br></pre></td></tr></table></figure>
+<p><strong>When editing Makefile, &#39;Tab&#39; is necessary, which can&#39;t be replace with 4 spaces.</strong><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make</span><br><span class="line">g++ -c main.cpp -o main.o</span><br><span class="line">g++ -c implement.cpp -o implement.o</span><br><span class="line">g++ main.o implement.o -o lexAnalyze</span><br><span class="line">g++ -c show.cpp -o show.o</span><br><span class="line">g++ show.o implement.o -o show</span><br><span class="line">rm -f *.o</span><br><span class="line"><span class="meta">$</span> ls</span><br><span class="line">declare.h   implement.cpp   main</span><br><span class="line">main.cpp    show    show.cpp</span><br></pre></td></tr></table></figure></p>
+<h3 id="Batch-Replace"><a href="#Batch-Replace" class="headerlink" title="Batch Replace"></a>Batch Replace</h3><p>Type the following command in terrminal.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sed -i "s/OldString/NewString/g" `grep OldString -rl FileDir`</span><br></pre></td></tr></table></figure></p>
+<p><strong>e.g.</strong><br>Replace &#39;<font color="Blue">shendu</font>&#39; with &#39;<font color="Green">depth</font>&#39;, if &#39;<font color="Blue">shendu</font>&#39; in .cpp file of current directory.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim Makefile</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">replace:</span></span><br><span class="line">    sed -i <span class="string">"s/shendu/depth/g"</span> `grep shendu -rl *.cpp`</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> make replace</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/12/turnserver-packet-loss-test/" rel="next" title="TURN-Server 3.2.3.95 多路压测记录">
+                <i class="fa fa-chevron-left"></i> TURN-Server 3.2.3.95 多路压测记录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
+                alt="Graycat" />
+            
+              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-Editor-Vim"><span class="nav-number">1.</span> <span class="nav-text">Text Editor - Vim</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Usage"><span class="nav-number">1.2.</span> <span class="nav-text">Usage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template"><span class="nav-number">1.3.</span> <span class="nav-text">Template</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NERDTree"><span class="nav-number">1.4.</span> <span class="nav-text">NERDTree</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Prompt"><span class="nav-number">2.</span> <span class="nav-text">Command Prompt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-User"><span class="nav-number">2.1.</span> <span class="nav-text">For User</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Root"><span class="nav-number">2.2.</span> <span class="nav-text">For Root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Result"><span class="nav-number">2.3.</span> <span class="nav-text">Result</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Terminal-Manager-Tmux"><span class="nav-number">3.</span> <span class="nav-text">Terminal Manager - Tmux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-1"><span class="nav-number">3.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Usage-1"><span class="nav-number">3.2.</span> <span class="nav-text">Usage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiler-GCC"><span class="nav-number">4.</span> <span class="nav-text">Compiler - GCC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Degugger-GDB"><span class="nav-number">5.</span> <span class="nav-text">Degugger - GDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redefine-IDE"><span class="nav-number">6.</span> <span class="nav-text">Redefine IDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-Script-Programing"><span class="nav-number">7.</span> <span class="nav-text">Shell Script Programing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Edit-Makefile"><span class="nav-number">7.1.</span> <span class="nav-text">Edit Makefile</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Replace"><span class="nav-number">7.2.</span> <span class="nav-text">Batch Replace</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graycat</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
