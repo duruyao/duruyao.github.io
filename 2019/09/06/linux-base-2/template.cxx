@@ -1,34 +1,24 @@
-#include <iostream>
-#include <unistd.h>
-#include <getopt.h>
+/**
+ * @file [filename] 
+ * [description of the content]
+ *
+ * @version 1.0
+ * @author duruyao
+ * @update [id] [yy-mm-dd] [name] [description] 
+ */
 
-#define LICENSE "+=======================+\n"   \
-                "+   Author : DuRuYao    +\n"   \
-                "+   Version: 1.0        +\n"   \
-                "+   Date   :            +\n"   \
-                "+=======================+\n"
+#include <math.h>
+#include <climits>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
+#include <algorithm>
 
 using namespace std;
 
-int opt;
-
-void handle_opt(int, char **);
-
 int main(int argc, char **argv) {
-
-    handle_opt(argc, argv);
 
     return 0;
 }
 
-void handle_opt(int argc, char **argv) {
-    while ((opt = getopt(argc, argv, "L")) != -1) {
-        switch (opt) {
-            case 'L':
-                cout << LICENSE;
-                break;
-            default:
-                ;
-        }
-    }
-}
