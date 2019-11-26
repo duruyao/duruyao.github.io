@@ -41,7 +41,7 @@ set autoindent      " Copy indent from current line when starting a new line
                     " (typing <CR> in Insert mode or when using the "o" or "O"
                     " command).
  
-set textwidth=120   " Maximum width of text that is being inserted. A longer
+set textwidth=80    " Maximum width of text that is being inserted. A longer
                     " line will be broken after white space to get this width.
  
 set formatoptions=c,q,r,t   " This is a sequence of letters which describes how
@@ -62,7 +62,8 @@ set ruler           " Show the line and column number of the cursor position,
  
 set mouse=a         " Enable the use of the mouse.
 
-set background=dark " Make color of vim is same inside Gnome terminal and inside tmux terminal.
+set background=dark " Make color of vim is same inside Gnome terminal and inside 
+                    " tmux terminal.
 
 set t_Co=256
  
@@ -74,27 +75,29 @@ filetype plugin indent on
 "" Configurations Of NERDTree
 
 map <F2> :NERDTreeToggle<CR>                
-                                            " Set 'F2' as switcher.
+                                        " Set 'F2' as switcher.
 
-let g:NERDTreeDirArrowExpandable = '+'      " Modified logo of tree.
+let g:NERDTreeDirArrowExpandable = '+'  " Modified logo of tree.
 
 let g:NERDTreeDirArrowCollapsible = '-'
 
-let g:NERDTreeWinPos='left'                 " Set position of window.
+let g:NERDTreeWinPos='left'             " Set position of window.
 
-let g:NERDTreeSize=30                       " Set size of window.
+let g:NERDTreeSize=25                   " Set size of window.
 
-let g:NERDTreeShowLineNumbers=0             " Show line numbers.
+let g:NERDTreeShowLineNumbers=0         " Show line numbers.
 
-let g:NERDTreeHidden=0                      " Show hidden file.
+let g:NERDTreeHidden=0                  " Show hidden file.
 
 autocmd vimenter * if !argc() | NERDTree | endif    
-                                            " Open NERDTree when start vim but no file.
+                                        " Show NERDTree when open vim but no file.
 
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-                                            " Auto close if NERDTree is only window.
+"autocmd bufenter * if (winnr("$") == 1 
+"&& exists("b:NERDTree") 
+"&& b:NERDTree.isTabTree()) | q | endif
+                                        " Auto close if NERDTree is only window.
 
-" autocmd vimenter * NERDTree               " Auto open NERDTree when start vim.
+"autocmd vimenter * NERDTree            " Auto open NERDTree when start vim.
 
 
 "" Set Template For Some Files

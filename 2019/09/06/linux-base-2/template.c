@@ -2,13 +2,14 @@
  * @file [filename] 
  * [description of the content]
  *
- * @version 1.0
- * @author duruyao
- * @update [id] [yy-mm-dd] [name] [description] 
+ * @author  duruyao
+ * @version 1.0  [yy-mm-dd]
+ * @update  [id] [yy-mm-dd] [author] [description] 
  */
 
 #include <time.h>
 #include <stdio.h>
+#include <float.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
