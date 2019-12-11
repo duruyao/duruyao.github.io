@@ -108,46 +108,33 @@
 
 
 
-  <meta name="description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
-<meta name="keywords" content="Windows Python">
+  <meta name="description" content="基础密码学中的密码（cryptography）指的是安全传送消息的方法，包括加密算法、密钥等等。注意，汉语中经常讲到的 “帐号、密码” 中的 “密码” 指的是口令（password、passcode、pin）。 密码学的理论基础是数学中的“难”题（何为难题？这一点参考 信息论 与 复杂性理论），如对大数的分解质因数（Prime Factorization）、模N下求大数的平方根（Square ro">
+<meta name="keywords" content="cryptography">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原创下载小工具get-tool使用说明书">
-<meta property="og:url" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/index.html">
+<meta property="og:title" content="密码技术概览 (1)">
+<meta property="og:url" content="https://graycat0918.github.io/2019/12/11/cryptography-1/index.html">
 <meta property="og:site_name" content="Graycat">
-<meta property="og:description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
+<meta property="og:description" content="基础密码学中的密码（cryptography）指的是安全传送消息的方法，包括加密算法、密钥等等。注意，汉语中经常讲到的 “帐号、密码” 中的 “密码” 指的是口令（password、passcode、pin）。 密码学的理论基础是数学中的“难”题（何为难题？这一点参考 信息论 与 复杂性理论），如对大数的分解质因数（Prime Factorization）、模N下求大数的平方根（Square ro">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-install-3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/py-success.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/install-module.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/path-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/path-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/command-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/4.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u4.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u5.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u6.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u7.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/u8.png">
-<meta property="og:updated_time" content="2019-04-15T03:09:19.198Z">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/xor.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/cryptography_tool.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/symmetric_key.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/public_key.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/hash.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/signature.png">
+<meta property="og:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/cryptography_book.png">
+<meta property="og:updated_time" content="2019-12-11T04:26:58.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="原创下载小工具get-tool使用说明书">
-<meta name="twitter:description" content="谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
-<meta name="twitter:image" content="https://graycat0918.github.io/2018/06/24/get-tool-inst/1.png">
+<meta name="twitter:title" content="密码技术概览 (1)">
+<meta name="twitter:description" content="基础密码学中的密码（cryptography）指的是安全传送消息的方法，包括加密算法、密钥等等。注意，汉语中经常讲到的 “帐号、密码” 中的 “密码” 指的是口令（password、passcode、pin）。 密码学的理论基础是数学中的“难”题（何为难题？这一点参考 信息论 与 复杂性理论），如对大数的分解质因数（Prime Factorization）、模N下求大数的平方根（Square ro">
+<meta name="twitter:image" content="https://graycat0918.github.io/2019/12/11/cryptography-1/xor.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://graycat0918.github.io/2018/06/24/get-tool-inst/"/>
+  <link rel="canonical" href="https://graycat0918.github.io/2019/12/11/cryptography-1/"/>
 
 
 
@@ -157,7 +144,7 @@
   };
 </script>
 
-  <title>原创下载小工具get-tool使用说明书 | Graycat</title>
+  <title>密码技术概览 (1) | Graycat</title>
   
 
 
@@ -302,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2018/06/24/get-tool-inst/">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2019/12/11/cryptography-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Graycat">
@@ -319,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">原创下载小工具get-tool使用说明书
+          <h1 class="post-title" itemprop="name headline">密码技术概览 (1)
               
             
           </h1>
@@ -344,24 +331,12 @@
                 
               
 
-              <time title="Created: 2018-06-24 11:22:24" itemprop="dateCreated datePublished" datetime="2018-06-24T11:22:24+08:00">2018-06-24</time>
+              <time title="Created: 2019-12-11 10:26:01 / Modified: 12:26:58" itemprop="dateCreated datePublished" datetime="2019-12-11T10:26:01+08:00">2019-12-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-04-15 11:09:19" itemprop="dateModified" datetime="2019-04-15T11:09:19+08:00">2019-04-15</time>
               
             
           </span>
@@ -394,113 +369,76 @@
       
 
       
-        <blockquote>
-<p><strong>谁适合使用get-tool？如果你是反产权人士，开源软件响应者或黑客精神推崇者，那么别错过他。</strong><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;—— 我说的</p>
-</blockquote>
-<h2 id="下载get-tool"><a href="#下载get-tool" class="headerlink" title="下载get-tool"></a>下载get-tool</h2><p><code>get-tool</code> 安装包链接如下：</p>
+        <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>密码学中的<strong>密码</strong>（cryptography）指的是安全传送消息的方法，包括加密算法、密钥等等。注意，汉语中经常讲到的 “帐号、密码” 中的 “密码” 指的是<strong>口令</strong>（password、passcode、pin）。</p>
+<p>密码学的理论基础是数学中的“<strong>难</strong>”题（何为难题？这一点参考 <strong><em>信息论</em></strong> 与 <strong><em>复杂性理论</em></strong>），如对大数的<strong>分解质因数</strong>（Prime Factorization）、模N下求大数的<strong>平方根</strong>（Square root）以及模N下求<strong>离散对数</strong>（Discrete Logarithm）等等。</p>
+<p><img src="xor.png" alt=""></p>
+<p>上图是一个经典的密码学例子：</p>
+<p>对待加密的原始比特流可称为<strong>明文</strong>（plaintext），另一个与其等长的比特流可称为<strong>密钥</strong>（key）。对二者一次<strong>异或运算</strong>（XOR）可视为<strong>加密</strong>（encrypt），其加密的结果可称为<strong>密文</strong>（ciphertext）。对密文与密钥的一次异或运算可视为<strong>解密</strong>（decrypt），其解密的结果就是原始比特流，即明文。在不知道密钥的情况下，根据密文生成明文的过程叫<strong>破译</strong>（cryptanalysis）。</p>
+<p>关于密码技术，有一些常识需要清楚：</p>
 <ul>
-<li><a href="https://drive.google.com/open?id=1Xp2v2uyz-b8drLy3KAEu48xQdrWcFipe" target="_blank" rel="noopener">Google Drive</a></li>
-<li><a href="https://1drv.ms/f/s!ArbZ01SuUv5M2B0_ea9EAQ3qn8tX" target="_blank" rel="noopener">OneDrive</a></li>
-<li><a href="https://www.jianguoyun.com/p/DXsvZZsQ1qf_BhjX1GY" target="_blank" rel="noopener">坚果云</a></li>
-<li><a href="https://share.weiyun.com/5HwmTcM" target="_blank" rel="noopener">微云</a>       </li>
-</ul>
-<p>任选<strong>其一</strong>，自行下载<strong>最新</strong>版本，并解压到<strong>合适</strong>的位置</p>
-<h2 id="系统-amp-环境"><a href="#系统-amp-环境" class="headerlink" title="系统&amp;环境"></a>系统&amp;环境</h2><blockquote>
-<p>本软件基于 <code>Windows</code> 操作系统，依赖 <code>python-3.X</code> 环境，若您的 <code>Windows</code> 无 <code>python-3.X</code>，请先安装 <code>python-3.X</code> ,已有该环境的用户可直接跳到步骤 <code>3 安装模块</code>。<br>特附上<a href="https://share.weiyun.com/52UCsyb" target="_blank" rel="noopener">python-3.6.5安装包下载链接</a>，当然更希望你从<a href="https://www.python.org/" target="_blank" rel="noopener">python官网</a>中下载适合自己的版本，同样自行保存到本地合适的位置。</p>
-</blockquote>
-<ol>
-<li><strong>安装python</strong></li>
-</ol>
-<p><img src="1.png" alt=""></p>
-<ol start="2">
-<li><strong>按图勾选</strong></li>
-</ol>
-<p><img src="py-install-1.png" alt=""></p>
-<ol start="3">
-<li><strong>等待安装</strong></li>
-</ol>
-<p><img src="py-install-2.png" alt=""></p>
-<ol start="4">
-<li><strong>关闭向导</strong></li>
-</ol>
-<p><img src="py-install-3.png" alt=""></p>
-<ol start="5">
-<li><strong>检验安装</strong></li>
-</ol>
-<p><img src="py-success.png" alt=""></p>
-<h2 id="安装模块"><a href="#安装模块" class="headerlink" title="安装模块"></a>安装模块</h2><blockquote>
-<p>本软件在 <code>python标准库</code> 基础上还依赖几个第三方模块，具体安装步骤已经写成脚本并转化为可执行文件 <code>install.exe</code></p>
-</blockquote>
-<ol>
-<li><strong>双击目录下的install.exe</strong></li>
-</ol>
-<p><img src="2.png" alt=""></p>
-<ol start="2">
-<li><strong>按照提示复制且仅复制 <code>红色边框</code> 内的信息</strong></li>
-</ol>
-<p><img src="install-module.png" alt=""></p>
-<ol start="3">
-<li><strong>添加环境变量-1</strong></li>
-</ol>
-<p><img src="path-1.png" alt=""></p>
-<ol start="4">
-<li><strong>添加环境变量-2</strong></li>
-</ol>
-<p><img src="path-2.png" alt=""></p>
-<h2 id="使用详情"><a href="#使用详情" class="headerlink" title="使用详情"></a>使用详情</h2><ol>
-<li><strong>打开 <code>命令行提示窗口</code> 的三种方法(任选其一,推荐第一种)</strong></li>
-</ol>
-<ul>
-<li>Win10:        <code>WIN+X</code> 弹出menu后键入 <code>A</code></li>
-<li>Win10:        <code>WIN+X</code> 弹出menu后键入 <code>C</code></li>
-<li>Win7/Win10:   <code>WIN+R</code> 然后输入 <code>cmd</code></li>
-</ul>
-<p><img src="command-1.png" alt=""></p>
-<ol start="2">
-<li><strong>命令行中输入 <code>get-more</code> 获取用法</strong></li>
-</ol>
-<p><img src="3.png" alt=""></p>
-<ol start="3">
-<li><strong>使用效果大概这样</strong></li>
-</ol>
-<p><img src="4.png" alt=""></p>
-<ol start="4">
-<li><strong>可获得的 <code>网站-网址-下载方式</code> 如下</strong></li>
-</ol>
-<ul>
-<li><p>全民K歌-歌手URL-批量下载<br><img src="u1.png" alt=""></p>
+<li><p>不要使用保密的密码算法——<strong>隐蔽式安全</strong>（Security By Obscurity）</p>
 </li>
-<li><p>全民K歌-歌曲URL-单曲下载<br><img src="u2.png" alt=""></p>
+<li><p>不要使用自制的密码算法——开发高强度的密码算法是困难的</p>
 </li>
-<li><p>网易云音乐-歌曲URL-单曲下载<br><img src="u3.png" alt=""></p>
+<li><p>使用低强度的密码比不加密更危险——错误的安全感</p>
 </li>
-<li><p>网易云音乐-歌手URL-批量下载<br><img src="u4.png" alt=""></p>
+<li><p>任何密码总有一天会被破解——时间成本与明文价值的权衡</p>
 </li>
-<li><p>QQ音乐-歌手URL-批量下载<br><img src="u5.png" alt=""></p>
-</li>
-<li><p>QQ音乐-歌曲URL-单曲下载<br><img src="u6.png" alt=""></p>
-</li>
-<li><p>Bilibili-视频URL-视频下载<br><img src="u7.png" alt=""></p>
-</li>
-<li><p>Youku-视频URL-视频下载<br><img src="u8.png" alt=""></p>
+<li><p>密码只是信息安全的一部分——脆弱的是人类自己</p>
 </li>
 </ul>
-<h2 id="Declarations"><a href="#Declarations" class="headerlink" title="Declarations"></a>Declarations</h2><blockquote>
-<ol>
-<li><strong>三家热门网站的音乐单曲与批量下载功能是笔者原创，视频下载功能的贡献来自<a href="https://github.com/soimort/you-get" target="_blank" rel="noopener">github的开源项目you-get</a>,同时也是笔者灵感的来源与效法的对象</strong></li>
-<li><strong>使用过程中出现任何bug欢迎反馈，邮箱如下</strong></li>
-</ol>
+<h2 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h2><p>密码学家的工具箱中应包括但不限于如下几种技术：</p>
+<p><img src="cryptography_tool.png" alt=""></p>
+<h2 id="对称密码"><a href="#对称密码" class="headerlink" title="对称密码"></a>对称密码</h2><p><strong>对称密码</strong>（symmetric-key cryptography），一种在加密、解密时使用相同的（或简单互推的）密钥的密码技术。</p>
+<p>经典的对称密码算法：</p>
 <ul>
-<li><a href="mailto:graycat0918@gmail.com" target="_blank" rel="noopener">graycat0918@gmail.com</a></li>
-<li><a href="mailto:duruyao@qq.com" target="_blank" rel="noopener">duruyao@qq.com</a></li>
+<li>DES（Data Encryption Standard）</li>
+<li>3DES（Triple-DES）</li>
+<li>AES（Advanced Encryption Standard）</li>
 </ul>
-<ol start="3">
-<li><strong>强烈建议将Windows shell（或命令提示窗口）设置为黑底绿字，绿屏效应还是很酷的</strong></li>
-</ol>
-</blockquote>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><blockquote>
-<p><strong>本软件仅供python网络爬虫初学者入门学习借鉴之用，不得用于任何商业用途，不得传播盗版资源，不得侵犯持有版权的公司和创作者的任何利益......</strong></p>
-</blockquote>
+<p><img src="symmetric_key.png" alt=""></p>
+<h2 id="非对称密码"><a href="#非对称密码" class="headerlink" title="非对称密码"></a>非对称密码</h2><p><strong>非对称密码</strong>（asymmetric cryptography），也叫<strong>公钥密码</strong>（Public-key cryptography），一种需要两个密钥的密码技术，一个是公开密钥，另一个是私有密钥，前者加密，后者解密。</p>
+<p>经典的非对称密码算法：</p>
+<ul>
+<li>RSA（Rivest-Shamir-Adleman）</li>
+<li>ECC（Elliptic Curve Cryptography）</li>
+<li>Rabin</li>
+<li>ElGamal</li>
+</ul>
+<p><img src="public_key.png" alt=""></p>
+<h2 id="单项散列函数"><a href="#单项散列函数" class="headerlink" title="单项散列函数"></a>单项散列函数</h2><p><strong>单项散列函数</strong>（one-way hash function）有一个输入和一个输出，其中输入称为消息（message），输出称为散列值（hash value）。</p>
+<p><code>h = H(M)</code>, 单项散列函数<code>H(M)</code>作用于任意长度的消息<code>M</code>，返回长度固定的散列值<code>h</code>。</p>
+<p>经典的单项散列函数算法：</p>
+<ul>
+<li>SHA-1</li>
+<li>SHA-2（Secure Hash Algorithm-2）<ul>
+<li>SHA-256</li>
+<li>SHA-512</li>
+</ul>
+</li>
+<li>REPEMD-160</li>
+<li>SHA-3（Secure Hash Algorithm-3）<ul>
+<li>Keccak</li>
+</ul>
+</li>
+</ul>
+<p><img src="hash.png" alt=""></p>
+<h2 id="消息认证码"><a href="#消息认证码" class="headerlink" title="消息认证码"></a>消息认证码</h2><hr>
+<p><strong><center>Unfinished</center></strong></p>
+<hr>
+<h2 id="数字签名"><a href="#数字签名" class="headerlink" title="数字签名"></a>数字签名</h2><hr>
+<p><strong><center>Unfinished</center></strong></p>
+<hr>
+<p><img src="signature.png" alt=""></p>
+<h2 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h2><ul>
+<li><p>科普：《图解密码技术》（<a href="https://book.douban.com/subject/26822106/" target="_blank" rel="noopener">新版暗号技術入門: 秘密の国のアリス</a>）</p>
+</li>
+<li><p>理论：《应用密码学》（<a href="https://book.douban.com/subject/25772389/" target="_blank" rel="noopener">Applied Cryptography: Protocols, Algorithms, and Source Code in C</a>）</p>
+</li>
+<li><p>实践：《密码学C/C++语言实现》（<a href="https://www.amazon.com/Cryptography-C-Michael-Welschenbach/dp/1430250984" target="_blank" rel="noopener">Cryptography in C and C++</a> ）</p>
+</li>
+</ul>
+<p><img src="cryptography_book.png" alt=""></p>
 
       
     </div>
@@ -521,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Windows-Python/" rel="tag"># Windows Python</a>
+            <a href="/tags/cryptography/" rel="tag"># cryptography</a>
           
         </div>
       
@@ -534,15 +472,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/10/20/shixi/" rel="next" title="实习手册">
+                <i class="fa fa-chevron-left"></i> 实习手册
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/install-python2-7x/" rel="prev" title="Windows下python2及pip的安装教程">
-                Windows下python2及pip的安装教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -715,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载get-tool"><span class="nav-number">1.</span> <span class="nav-text">下载get-tool</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统-amp-环境"><span class="nav-number">2.</span> <span class="nav-text">系统&amp;环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装模块"><span class="nav-number">3.</span> <span class="nav-text">安装模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用详情"><span class="nav-number">4.</span> <span class="nav-text">使用详情</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Declarations"><span class="nav-number">5.</span> <span class="nav-text">Declarations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remarks"><span class="nav-number">6.</span> <span class="nav-text">Remarks</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具箱"><span class="nav-number">2.</span> <span class="nav-text">工具箱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对称密码"><span class="nav-number">3.</span> <span class="nav-text">对称密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非对称密码"><span class="nav-number">4.</span> <span class="nav-text">非对称密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单项散列函数"><span class="nav-number">5.</span> <span class="nav-text">单项散列函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息认证码"><span class="nav-number">6.</span> <span class="nav-text">消息认证码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字签名"><span class="nav-number">7.</span> <span class="nav-text">数字签名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐书籍"><span class="nav-number">8.</span> <span class="nav-text">推荐书籍</span></a></li></ol></div>
             
 
           </div>
