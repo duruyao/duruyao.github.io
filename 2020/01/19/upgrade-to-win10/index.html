@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="自 2020/01/14 始，微软将对 Windows 7 停止安全更新，换言之，它将成为网络攻击的主要目标（即使之前就如此）。 如果你仍不愿意放弃 Windows，为安全起见，我唯一的建议就是使用 Windows 10。 好在有办法可以在不重装系统的情况下升级到 Windows 10。 类型扩展名Windows 默认隐藏已知文件类型扩展名，这极为不便，我们需要修改它。  打开 文件资源管理器，左">
+<meta name="keywords" content="Windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Upgrade Windows 7 to Windows 10 Without Reinstall OS">
+<meta property="og:url" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/index.html">
+<meta property="og:site_name" content="Graycat">
+<meta property="og:description" content="自 2020/01/14 始，微软将对 Windows 7 停止安全更新，换言之，它将成为网络攻击的主要目标（即使之前就如此）。 如果你仍不愿意放弃 Windows，为安全起见，我唯一的建议就是使用 Windows 10。 好在有办法可以在不重装系统的情况下升级到 Windows 10。 类型扩展名Windows 默认隐藏已知文件类型扩展名，这极为不便，我们需要修改它。  打开 文件资源管理器，左">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/file_manager.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/view.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/cmd.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/sys_info.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/aact_x64.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/activate_win.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/system.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/down_key_finder.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/find_key.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/down_tool.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/tool_accept.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/tool_upgrade.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/down_win10.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/product_key.png">
+<meta property="og:updated_time" content="2020-01-19T11:29:31.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Upgrade Windows 7 to Windows 10 Without Reinstall OS">
+<meta name="twitter:description" content="自 2020/01/14 始，微软将对 Windows 7 停止安全更新，换言之，它将成为网络攻击的主要目标（即使之前就如此）。 如果你仍不愿意放弃 Windows，为安全起见，我唯一的建议就是使用 Windows 10。 好在有办法可以在不重装系统的情况下升级到 Windows 10。 类型扩展名Windows 默认隐藏已知文件类型扩展名，这极为不便，我们需要修改它。  打开 文件资源管理器，左">
+<meta name="twitter:image" content="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/file_manager.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Upgrade Windows 7 to Windows 10 Without Reinstall OS | Graycat</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Graycat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2020/01/19/upgrade-to-win10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graycat">
+      <meta itemprop="description" content="To be, or not to be.">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Graycat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Upgrade Windows 7 to Windows 10 Without Reinstall OS
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-01-19 19:01:17 / Modified: 19:29:31" itemprop="dateCreated datePublished" datetime="2020-01-19T19:01:17+08:00">2020-01-19</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自 <strong>2020/01/14</strong> 始，微软将对 Windows 7 停止安全更新，换言之，它将成为网络攻击的主要目标（即使之前就如此）。</p>
+<p>如果你仍不愿意放弃 Windows，为安全起见，我唯一的建议就是使用 Windows 10。</p>
+<p>好在有办法可以在不重装系统的情况下升级到 Windows 10。</p>
+<h2 id="类型扩展名"><a href="#类型扩展名" class="headerlink" title="类型扩展名"></a>类型扩展名</h2><p>Windows 默认隐藏已知文件类型扩展名，这极为不便，我们需要修改它。</p>
+<ol>
+<li>打开 <code>文件资源管理器</code>，左键单击 <code>组织</code> -&gt; <code>文件夹和搜索选项</code></li>
+</ol>
+<p><img src="file_manager.png" alt="file_manager.png"></p>
+<ol start="2">
+<li>单击 <code>View</code>，<strong>取消勾选</strong> <code>隐藏已知类型文件扩展名</code> 并确认</li>
+</ol>
+<p><img src="view.png" alt="view.png"></p>
+<h2 id="系统版本-amp-状态"><a href="#系统版本-amp-状态" class="headerlink" title="系统版本&amp;状态"></a>系统版本&amp;状态</h2><p>确认当前操作系统的名称、版本及激活情况。</p>
+<ol>
+<li><p>按下 <code>WIN</code> + <code>R</code>，启动<strong>运行</strong>窗口</p>
+</li>
+<li><p>输入 <code>cmd</code> 并确认，启动<strong>控制台</strong></p>
+</li>
+</ol>
+<p><img src="cmd.png" alt="cmd.png"></p>
+<ol start="3">
+<li>在控制台输入 <code>systeminfo</code> 并回车确认（为避免编辑错误，强烈建议复制该命令，并在控制台单击鼠标右键进行粘贴）</li>
+</ol>
+<p><img src="sys_info.png" alt="sys_info.png"></p>
+<ol start="4">
+<li>你的 Windows 7 的版本决定了你可以省级到的 Windows 10 的b版本，Windows 7 Starter，Home Basic 和 Home Premium 将升级到 Windows 10 Home，而其他 Windows 7 Professional 和 Ultimate 版本将被Windows 10 Pro 取代</li>
+</ol>
+<h2 id="系统激活"><a href="#系统激活" class="headerlink" title="系统激活"></a>系统激活</h2><p>获取<a href="https://share.weiyun.com/5018W5W" target="_blank" rel="noopener">激活工具</a>激活当前操作系统，若已经激活，跳至下一步。</p>
+<ol>
+<li>双击 <code>AAct_x64.exe</code></li>
+</ol>
+<p><img src="aact_x64.png" alt="aact_x64.png"></p>
+<ol start="2">
+<li>双击 <code>Windows Activation</code></li>
+</ol>
+<p><img src="activate_win.png" alt="activate_win.png"></p>
+<ol start="3">
+<li><code>控制面板</code> -&gt; <code>系统与安全</code> -&gt; <code>系统</code> 查看激活情况</li>
+</ol>
+<p><img src="system.png" alt="system.png"></p>
+<h2 id="Product-Key"><a href="#Product-Key" class="headerlink" title="Product Key"></a>Product Key</h2><p>查看已激活系统的 <code>Product Key</code>。</p>
+<ol>
+<li>下载工具<a href="https://www.magicaljellybean.com/keyfinder/" target="_blank" rel="noopener">Magical Jelly Bean Keyfinder</a></li>
+</ol>
+<p><img src="down_key_finder.png" alt="down_key_finder.png"></p>
+<ol start="2">
+<li>启动下载后的程序，复制 <code>Product Key</code></li>
+</ol>
+<p><img src="find_key.png" alt="find_key.png"></p>
+<h2 id="升级-Windows"><a href="#升级-Windows" class="headerlink" title="升级 Windows"></a>升级 Windows</h2><p>微软官方提供的工具，可以在不重装操作系统的前提下更新 Windows 7 或 Windows 8 到  Windows 10。</p>
+<ol>
+<li><p>为避免数据丢失，备份计算机中<strong>一切</strong>重要文件到一块移动硬盘中</p>
+</li>
+<li><p>官网下载 <a href="https://www.microsoft.com/en-in/software-download/windows10" target="_blank" rel="noopener">Upgrade Tool</a></p>
+</li>
+</ol>
+<p><img src="down_tool.png" alt="down_tool.png"></p>
+<ol start="3">
+<li>接受条款</li>
+</ol>
+<p><img src="tool_accept.png" alt="tool_accept.png"></p>
+<ol start="4">
+<li>选择 <code>Upgrade this PC now</code></li>
+</ol>
+<p><img src="tool_upgrade.png" alt="tool_upgrade.png"></p>
+<ol start="5">
+<li>等待下载 Windows 10，速度视网络情况而定，大概20分左右</li>
+</ol>
+<p><img src="down_win10.png" alt="down_win10.png"></p>
+<ol start="6">
+<li>下载完成，输入当前 Windows <code>Product Key</code></li>
+</ol>
+<p><img src="product_key.png" alt="product_key.png"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/12/11/cryptography-1/" rel="next" title="密码技术概览 (1)">
+                <i class="fa fa-chevron-left"></i> 密码技术概览 (1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
+                alt="Graycat" />
+            
+              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型扩展名"><span class="nav-number">1.</span> <span class="nav-text">类型扩展名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统版本-amp-状态"><span class="nav-number">2.</span> <span class="nav-text">系统版本&amp;状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统激活"><span class="nav-number">3.</span> <span class="nav-text">系统激活</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Product-Key"><span class="nav-number">4.</span> <span class="nav-text">Product Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#升级-Windows"><span class="nav-number">5.</span> <span class="nav-text">升级 Windows</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graycat</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
