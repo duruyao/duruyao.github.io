@@ -109,9 +109,9 @@
 
 
   <meta name="description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
-<meta name="keywords" content="Linux C">
+<meta name="keywords" content="Linux,C,OS,HDU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDU-OS-1:Linux 内核编译及添加系统调用">
+<meta property="og:title" content="HDU-OS-1 Linux内核编译及添加系统调用">
 <meta property="og:url" content="https://graycat0918.github.io/2018/10/02/compile-kernel/index.html">
 <meta property="og:site_name" content="Graycat">
 <meta property="og:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
@@ -134,9 +134,9 @@
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/45-test-2.png">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/8.jpg">
 <meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/75.jpg">
-<meta property="og:updated_time" content="2019-04-15T03:10:00.488Z">
+<meta property="og:updated_time" content="2020-03-01T02:12:15.285Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDU-OS-1:Linux 内核编译及添加系统调用">
+<meta name="twitter:title" content="HDU-OS-1 Linux内核编译及添加系统调用">
 <meta name="twitter:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
 <meta name="twitter:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/70.jpg">
 
@@ -155,7 +155,7 @@
   };
 </script>
 
-  <title>HDU-OS-1:Linux 内核编译及添加系统调用 | Graycat</title>
+  <title>HDU-OS-1 Linux内核编译及添加系统调用 | Graycat</title>
   
 
 
@@ -247,6 +247,22 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
@@ -317,7 +333,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HDU-OS-1:Linux 内核编译及添加系统调用
+          <h1 class="post-title" itemprop="name headline">HDU-OS-1 Linux内核编译及添加系统调用
               
             
           </h1>
@@ -359,7 +375,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-04-15 11:10:00" itemprop="dateModified" datetime="2019-04-15T11:10:00+08:00">2019-04-15</time>
+                <time title="Modified: 2020-03-01 10:12:15" itemprop="dateModified" datetime="2020-03-01T10:12:15+08:00">2020-03-01</time>
               
             
           </span>
@@ -570,7 +586,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux-C/" rel="tag"># Linux C</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/OS/" rel="tag"># OS</a>
+          
+            <a href="/tags/HDU/" rel="tag"># HDU</a>
           
         </div>
       
@@ -583,8 +605,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/28/install-python2-7x/" rel="next" title="Windows下python2及pip的安装教程">
-                <i class="fa fa-chevron-left"></i> Windows下python2及pip的安装教程
+              <a href="/2018/06/28/install-python2-7x/" rel="next" title="Install Python 2 and pip on Windows">
+                <i class="fa fa-chevron-left"></i> Install Python 2 and pip on Windows
               </a>
             
           </div>
@@ -593,8 +615,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/10/kernel-modules-program/" rel="prev" title="HDU-OS-2:Linux 内核模块编程">
-                HDU-OS-2:Linux 内核模块编程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/10/kernel-modules-program/" rel="prev" title="HDU-OS-2 Linux内核模块编程">
+                HDU-OS-2 Linux内核模块编程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -687,7 +709,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -720,9 +742,41 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>

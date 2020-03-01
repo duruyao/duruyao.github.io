@@ -109,7 +109,7 @@
 
 
   <meta name="description" content="1. Allocate  客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口  若该请求不含验证信息，服务端回复error responce  客户端收到错误请求的回复后，携带验证信息再次请求  若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果  客户端A获得一个公网IP">
-<meta name="keywords" content="P2P TURN Linux">
+<meta name="keywords" content="STUN,TURN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Turnserver Working Mechanism">
 <meta property="og:url" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/index.html">
@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/create_permission.png">
 <meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/channel_data_messages.png">
 <meta property="og:image" content="https://graycat0918.github.io/2019/06/30/turnserver-working-mechanism/channel_bind.png">
-<meta property="og:updated_time" content="2019-06-30T11:53:29.358Z">
+<meta property="og:updated_time" content="2020-03-01T02:05:57.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Turnserver Working Mechanism">
 <meta name="twitter:description" content="1. Allocate  客户端发送Allocate请求给TURN服务器，请求服务器为A客户端开启一个relay端口  若该请求不含验证信息，服务端回复error responce  客户端收到错误请求的回复后，携带验证信息再次请求  若请求被成功响应，服务端回复的response中包含XOR-RELAYED-ADDRESS属性，是分配给客户端的relay端口的异或结果  客户端A获得一个公网IP">
@@ -236,6 +236,22 @@
         
         
           
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
@@ -331,12 +347,24 @@
                 
               
 
-              <time title="Created: 2019-06-30 19:48:52 / Modified: 19:53:29" itemprop="dateCreated datePublished" datetime="2019-06-30T19:48:52+08:00">2019-06-30</time>
+              <time title="Created: 2019-06-30 19:48:52" itemprop="dateCreated datePublished" datetime="2019-06-30T19:48:52+08:00">2019-06-30</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-01 10:05:57" itemprop="dateModified" datetime="2020-03-01T10:05:57+08:00">2020-03-01</time>
               
             
           </span>
@@ -470,7 +498,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/P2P-TURN-Linux/" rel="tag"># P2P TURN Linux</a>
+            <a href="/tags/STUN/" rel="tag"># STUN</a>
+          
+            <a href="/tags/TURN/" rel="tag"># TURN</a>
           
         </div>
       
@@ -587,7 +617,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -620,9 +650,41 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">tags</span>
-                  
+                  </a>
                 </div>
               
             </nav>
