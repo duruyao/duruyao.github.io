@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="快节奏的互联网时代下，你总会有一千个砸电脑的理由，但其中不该有任何一个是网页广告。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
+<meta name="keywords" content="Windows,Linux, OS,Browser,Chrome,Firefox">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Extensions of Browser to Block Ads">
+<meta property="og:url" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/index.html">
+<meta property="og:site_name" content="Graycat">
+<meta property="og:description" content="快节奏的互联网时代下，你总会有一千个砸电脑的理由，但其中不该有任何一个是网页广告。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/firefox_manage_1.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/firefox_search.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/translate_find.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/translate_use.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/firefox_manage_2.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/chrome_webstone.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/adskill_search.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/adskill_find.png">
+<meta property="og:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/chrome_manage.png">
+<meta property="og:updated_time" content="2020-03-02T13:16:28.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Using Extensions of Browser to Block Ads">
+<meta name="twitter:description" content="快节奏的互联网时代下，你总会有一千个砸电脑的理由，但其中不该有任何一个是网页广告。&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;e">
+<meta name="twitter:image" content="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/firefox_manage_1.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Using Extensions of Browser to Block Ads | Graycat</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Graycat</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2020/03/01/usage-of-browser-extensions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Graycat">
+      <meta itemprop="description" content="To be, or not to be.">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Graycat">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Using Extensions of Browser to Block Ads
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-03-01 11:22:03" itemprop="dateCreated datePublished" datetime="2020-03-01T11:22:03+08:00">2020-03-01</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-03-02 21:16:28" itemprop="dateModified" datetime="2020-03-02T21:16:28+08:00">2020-03-02</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Computer-Advanced-Guide/" itemprop="url" rel="index"><span itemprop="name">Computer Advanced Guide</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>快节奏的互联网时代下，你总会有一千个砸电脑的理由，但其中不该有任何一个是网页广告。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;—— <del>我说的</del></p>
+</blockquote>
+<p>个人电脑的浏览器可以通过添加插件或扩展程序达到更好的使用效果，如去横幅广告、去弹窗广告、外文划线翻译、看视频跳过片头广告......</p>
+<p>在2020年，这不该再是一件鲜为人知的事情，下面的文字试图通过两个例子为你展示这件事情有多简单（在Firefox中添加一个划线翻译插件，在Chrome中添加一个去广告插件）。</p>
+<p>你需要的仅仅是网络、个人电脑与一个主流的浏览器（对于后者我个人的推荐是 <a href="https://www.google.com/intl/zh-CN/chrome/" target="_blank" rel="noopener">Chrome</a> &gt;= <a href="https://www.mozilla.org/zh-CN/firefox/new/" target="_blank" rel="noopener">Firefox</a> &gt;= <a href="https://www.apple.com/safari/" target="_blank" rel="noopener">Safari</a> &gt;= <a href="https://www.microsoft.com/en-us/edge" target="_blank" rel="noopener">Mircosoft Edge</a> &gt; <a href="https://support.microsoft.com/zh-cn/help/17621/internet-explorer-downloads" target="_blank" rel="noopener">Internet Explorer</a>）</p>
+<h2 id="Firfox"><a href="#Firfox" class="headerlink" title="Firfox"></a>Firfox</h2><p>你可以从该<a href="https://www.mozilla.org/zh-CN/firefox/new/" target="_blank" rel="noopener">地址</a>中下载并安装Firefox浏览器。我们将以安装Translate Man Plus（翻译侠）为例，展示如何在Firefox中使用扩展程序。</p>
+<h3 id="Install-Extension"><a href="#Install-Extension" class="headerlink" title="Install Extension"></a>Install Extension</h3><p>你可以在Firefox按下组合键<code>Ctrl + Shift + A</code>j进入Add-ons Manager（你也可以找到浏览器菜单栏最右侧的抽屉图标，单击它 -&gt; 单击<code>扩展</code>）。</p>
+<p><img src="firefox_manage_1.png" alt="firefox_manage_1.png"></p>
+<p>选中左侧<code>扩展程序</code>后，在右上角的搜索框输入关键字，如<code>ads</code>，<code>translate</code>等等，这里我们输入<code>Translate Man Plus</code>，你可以在搜索结果中找到它及同类扩展程序。</p>
+<p><img src="firefox_search.png" alt="firefox_search.png"></p>
+<p>单击后进入安装页面，确认安装。安装成功后，你已经可以在Firefox右上角的菜单栏看到扩展程序的图标。</p>
+<p><img src="translate_find.png" alt="translate_find.png"></p>
+<h3 id="Deploy-Extension"><a href="#Deploy-Extension" class="headerlink" title="Deploy Extension"></a>Deploy Extension</h3><p>在Firefox浏览器右上角找到你的扩展程序的图标，右键单击图标，设置你的扩展程序。在本例中，我们把翻译的目标语言设置为<code>Chinese</code>。</p>
+<p>尝试鼠标左键选中一段英文，在<code>T</code>图标弹出后，单击此图标，进行翻译。下面给出一段英文作为测试样本。</p>
+<blockquote>
+<p><strong>Some people have told me they don&#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.</strong><br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;—— Linus Torvalds</p>
+</blockquote>
+<p>如果翻译成功的话，可以达到与下图类似的效果。</p>
+<p><img src="translate_use.png" alt="translate_use.png"></p>
+<h3 id="Manage-Extension"><a href="#Manage-Extension" class="headerlink" title="Manage Extension"></a>Manage Extension</h3><p>你可以在Firefox按下组合键<code>Ctrl + Shift + A</code>进入（Add-ons Manager。你也可以单击浏览器菜单栏最右侧的<code>抽屉</code>图标，单击它 -&gt; 单击<code>扩展</code>）。在此，你可以管理（开启、关闭、卸载）和设置你的所有扩展程序。</p>
+<p><img src="firefox_manage_2.png" alt="firefox_manage_2.png"></p>
+<h3 id="Suggestion"><a href="#Suggestion" class="headerlink" title="Suggestion"></a>Suggestion</h3><p>对于在Firefox浏览器上还应该安装那些扩展程序，我列出了一些建议，在Firefox中单击任意一个都可以进入相应的安装页面。</p>
+<ul>
+<li><p><a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-guard/?src=search" target="_blank" rel="noopener">Adblock</a></p>
+</li>
+<li><p><a href="https://addons.mozilla.org/en-US/firefox/addon/adkiller/?src=search" target="_blank" rel="noopener">Ad Killer</a></p>
+</li>
+<li><p><a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-plus/?src=search" target="_blank" rel="noopener">Adblock Plus</a></p>
+</li>
+<li><p><a href="https://addons.mozilla.org/en-US/firefox/addon/adblock-for-youtube-tm/?src=search" target="_blank" rel="noopener">Adblock for Youtube</a></p>
+</li>
+<li><p><a href="https://addons.mozilla.org/en-US/firefox/addon/translate-man-plus/?src=search" target="_blank" rel="noopener">Translate Man Plus</a></p>
+</li>
+</ul>
+<h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><p>你可以从该<a href="https://www.google.com/intl/zh-CN/chrome/" target="_blank" rel="noopener">地址</a>中下载并安装Chrome浏览器。我们将以安装Adskill（广告杀）为例，展示如何在Chrome中使用扩展程序。</p>
+<h3 id="Install-Extension-1"><a href="#Install-Extension-1" class="headerlink" title="Install Extension"></a>Install Extension</h3><p>在Chrome中使用扩展的<strong>大前提</strong>是你可以<strong>正常</strong>地访问<a href="https://www.google.com" target="_blank" rel="noopener">Google</a>。</p>
+<p>在Chrome浏览器中单击<a href="https://chrome.google.com/webstore/category/extensions?" target="_blank" rel="noopener">此链接</a>进入Web Stone（或者先单击左上角菜单栏的<code>APPS</code> -&gt; 单击<code>Web Stone</code>）。</p>
+<p><img src="chrome_webstone.png" alt="chrome_webstone.png"></p>
+<p>选中左侧<code>扩展程序</code>后，在其上方的搜索框输入关键字，如<code>ads</code>，<code>translate</code>等等，这里我们输入<code>Adskill</code>，你可以在搜索结果中找到它及同类扩展程序。</p>
+<p><img src="adskill_search.png" alt="adskill_search.png"></p>
+<p>单击后进入安装页面，确认安装。安装成功后，你已经可以在Chrome右上角的菜单栏看到扩展程序的图标。</p>
+<p><img src="adskill_find.png" alt="adskill_find.png"></p>
+<h3 id="Deploy-Extension-1"><a href="#Deploy-Extension-1" class="headerlink" title="Deploy Extension"></a>Deploy Extension</h3><p>你可以在Chrome浏览器右上角找到你的扩展程序的图标，右键单击图标，设置你的扩展程序。</p>
+<h3 id="Manage-Extension-1"><a href="#Manage-Extension-1" class="headerlink" title="Manage Extension"></a>Manage Extension</h3><p>你可以找到Chrome菜单栏最右侧的抽屉图标，单击它 -&gt; 单击<code>设置</code> -&gt; 选择左侧的<code>扩展程序</code> -&gt; 开启<code>开发者模式</code>，你可以管理（开启、关闭、卸载）和设置你的所有扩展程序。</p>
+<p><img src="chrome_manage.png" alt="chrome_manage.png"></p>
+<h3 id="Suggestion-1"><a href="#Suggestion-1" class="headerlink" title="Suggestion"></a>Suggestion</h3><p>对于在Chrome浏览器上还应该安装那些扩展程序，我列出了一些建议，在Chrome中单击任意一个都可以进入相应的安装页面。</p>
+<ul>
+<li><p><a href="https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom?utm_source=chrome-ntp-icon/" target="_blank" rel="noopener">AdBlock</a></p>
+</li>
+<li><p><a href="https://chrome.google.com/webstore/detail/ads-killer/jjckigopagkhaikodedjnmbccfpnmiea?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Ads Killer</a></p>
+</li>
+<li><p><a href="https://chrome.google.com/webstore/detail/adblock-plus-free-ad-bloc/cfhdojbkjhnklbpkdaibdccddilifddb?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Adblock Plus</a></p>
+</li>
+<li><p><a href="https://chrome.google.com/webstore/detail/video-adblocker-for-youtu/hflefjhkfeiaignkclmphmokmmbhbhik?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">YouTube广告拦截器</a></p>
+</li>
+<li><p><a href="https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb?utm_source=chrome-ntp-icon" target="_blank" rel="noopener">Google划线翻译</a></p>
+</li>
+</ul>
+<h2 id="Remark"><a href="#Remark" class="headerlink" title="Remark"></a>Remark</h2><p>大部分免费网站都以投放广告作为盈利或者生存方式，在浏览器中使用去广告的扩展程序会影响网站的经济来源。我们可以选择性地暂时关闭某些插件以帮助网站正常运作，这样网站才能为我们提供更好的服务，促使互联网的运转良性循环。</p>
+<p>祝好运。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Windows/" rel="tag"># Windows</a>
+          
+            <a href="/tags/Linux-OS/" rel="tag"># Linux, OS</a>
+          
+            <a href="/tags/Browser/" rel="tag"># Browser</a>
+          
+            <a href="/tags/Chrome/" rel="tag"># Chrome</a>
+          
+            <a href="/tags/Firefox/" rel="tag"># Firefox</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/19/upgrade-to-win10/" rel="next" title="Upgrade Windows 7 to Windows 10 without Reinstalling OS">
+                <i class="fa fa-chevron-left"></i> Upgrade Windows 7 to Windows 10 without Reinstalling OS
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
+                alt="Graycat" />
+            
+              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Firfox"><span class="nav-number">1.</span> <span class="nav-text">Firfox</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Extension"><span class="nav-number">1.1.</span> <span class="nav-text">Install Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-Extension"><span class="nav-number">1.2.</span> <span class="nav-text">Deploy Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manage-Extension"><span class="nav-number">1.3.</span> <span class="nav-text">Manage Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suggestion"><span class="nav-number">1.4.</span> <span class="nav-text">Suggestion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome"><span class="nav-number">2.</span> <span class="nav-text">Chrome</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Extension-1"><span class="nav-number">2.1.</span> <span class="nav-text">Install Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-Extension-1"><span class="nav-number">2.2.</span> <span class="nav-text">Deploy Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manage-Extension-1"><span class="nav-number">2.3.</span> <span class="nav-text">Manage Extension</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Suggestion-1"><span class="nav-number">2.4.</span> <span class="nav-text">Suggestion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remark"><span class="nav-number">3.</span> <span class="nav-text">Remark</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+<span id="busuanzi_container_site_uv">
+    访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Graycat</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
