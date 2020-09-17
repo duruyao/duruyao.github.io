@@ -7,6 +7,7 @@
  * @update  [id] [yy-mm-dd] [author] [description] 
  */
 
+#include <time.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,12 +15,6 @@
 #include <limits.h>
 #include <assert.h>
 #include <algorithm>
-
-#define LICENSE "+=======================+\n"
-                "+   Author : DuRuYao    +\n"
-                "+   Version: 1.0        +\n"
-                "+   Date   : yy/dd/mm   +\n"
-                "+=======================+\n"
 
 using namespace std;
 

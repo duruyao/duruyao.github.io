@@ -3,10 +3,11 @@
  * [description of the content]
  *
  * @author  duruyao
- * @version 1.0 [yy/mm/dd]
- * @update  [id] [yy/mm/dd] [name] [description] 
+ * @version 1.0  [yy/mm/dd]
+ * @update  [id] [yy/mm/dd] [author] [description] 
  */
 
+#include <time.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
