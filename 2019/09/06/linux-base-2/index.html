@@ -64,10 +64,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/duruyao.jpg?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/duruyao.jpg?v=6.3.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
@@ -112,26 +112,26 @@
 <meta name="keywords" content="Linux,Ubuntu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Basic Configuration and Operation (2)">
-<meta property="og:url" content="https://graycat0918.github.io/2019/09/06/linux-base-2/index.html">
-<meta property="og:site_name" content="Graycat">
+<meta property="og:url" content="https://duruyao.github.io/2019/09/06/linux-base-2/index.html">
+<meta property="og:site_name" content="Du Ruyao&#39;s Blog">
 <meta property="og:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/linux.png">
-<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/cmd_prompt.png">
-<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/ide_linux.png">
-<meta property="og:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/boot-repair.png">
+<meta property="og:image" content="https://duruyao.github.io/2019/09/06/linux-base-2/linux.png">
+<meta property="og:image" content="https://duruyao.github.io/2019/09/06/linux-base-2/cmd_prompt.png">
+<meta property="og:image" content="https://duruyao.github.io/2019/09/06/linux-base-2/ide_linux.png">
+<meta property="og:image" content="https://duruyao.github.io/2019/09/06/linux-base-2/boot-repair.png">
 <meta property="og:updated_time" content="2020-09-17T14:08:10.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux Basic Configuration and Operation (2)">
 <meta name="twitter:description" content="Some people have told me they don&amp;#39;t think a fat penguin really embodies the grace of Linux, which just tells me they have never seen a angry penguin charging at them in excess of 100 mph.&amp;emsp;&amp;e">
-<meta name="twitter:image" content="https://graycat0918.github.io/2019/09/06/linux-base-2/linux.png">
+<meta name="twitter:image" content="https://duruyao.github.io/2019/09/06/linux-base-2/linux.png">
 
 
 
 
 
 
-  <link rel="canonical" href="https://graycat0918.github.io/2019/09/06/linux-base-2/"/>
+  <link rel="canonical" href="https://duruyao.github.io/2019/09/06/linux-base-2/"/>
 
 
 
@@ -141,7 +141,7 @@
   };
 </script>
 
-  <title>Linux Basic Configuration and Operation (2) | Graycat</title>
+  <title>Linux Basic Configuration and Operation (2) | Du Ruyao's Blog</title>
   
 
 
@@ -199,7 +199,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Graycat</span>
+        <span class="site-title">Du Ruyao's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -302,16 +302,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2019/09/06/linux-base-2/">
+    <link itemprop="mainEntityOfPage" href="https://duruyao.github.io/2019/09/06/linux-base-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="DURUYAO">
       <meta itemprop="description" content="To be, or not to be.">
       <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="Du Ruyao's Blog">
     </span>
 
     
@@ -545,7 +545,7 @@
 <h3 id="NERDTree"><a href="#NERDTree" class="headerlink" title="NERDTree"></a>NERDTree</h3><p>The NERD tree allows you to explore your filesystem and to open files and<br>directories.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir -p ~/.vim/autoload ~/.vim/bundle &amp;&amp; curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim</span><br><span class="line"><span class="meta">$</span> git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree</span><br></pre></td></tr></table></figure></p>
 <p>Add the following code to <code>~/.vimrc</code>.<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">execute</span> pathogen#infect()</span><br><span class="line"><span class="keyword">filetype</span> plugin <span class="built_in">indent</span> <span class="keyword">on</span></span><br><span class="line"><span class="keyword">map</span> <span class="symbol">&lt;F2&gt;</span> :NERDTreeToggle<span class="symbol">&lt;CR&gt;</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeDirArrowExpandable</span> = <span class="string">'+'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeDirArrowCollapsible</span> = <span class="string">'-'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeWinPos</span>=<span class="string">'left'</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeSize</span>=<span class="number">30</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeShowLineNumbers</span>=<span class="number">0</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">g:NERDTreeHidden</span>=<span class="number">0</span></span><br><span class="line"><span class="keyword">autocmd</span> vimenter * <span class="keyword">if</span> !argc() | NERDTree | <span class="keyword">endif</span></span><br></pre></td></tr></table></figure></p>
 <p>Press <code>F2</code> to switch the tree directory.<br>Press <code>r</code> to refresh the tree directory.</p>
-<p><strong><a href="https://github.com/graycat0918/graycat0918.github.io/tree/master/2019/09/06/linux-base-2" target="_blank" rel="noopener">CLick this link</a>, see more detailed info about <code>~/.vimrc</code> or download template file instead of re-editing.</strong></p>
+<p><strong><a href="https://github.com/duruyao/duruyao.github.io/tree/master/2019/09/06/linux-base-2" target="_blank" rel="noopener">CLick this link</a>, see more detailed info about <code>~/.vimrc</code> or download template file instead of re-editing.</strong></p>
 <h2 id="Command-Prompt"><a href="#Command-Prompt" class="headerlink" title="Command Prompt"></a>Command Prompt</h2><h3 id="For-User"><a href="#For-User" class="headerlink" title="For User"></a>For User</h3><p>View configuration of bash.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim + ~/.bashrc</span><br></pre></td></tr></table></figure></p>
 <p>Add the following text in the last line of file <code>~/.bashrc</code>.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS1="\[\e[32;1m\][\[\e[32;1m\]\u\[\e[31;1m\]@\[\e[32;1m\]\h\[\e[37;1m\]: \[\e[34;1m\]\w\[\e[32;1m\]]\[\e[37;1m\]\\$ \[\e[0m\]"</span><br></pre></td></tr></table></figure></p>
 <p>Reload configuration.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> . ~/.bashrc</span><br></pre></td></tr></table></figure></p>
@@ -556,7 +556,7 @@
 <h2 id="Terminal-Manager-Tmux"><a href="#Terminal-Manager-Tmux" class="headerlink" title="Terminal Manager - Tmux"></a>Terminal Manager - Tmux</h2><h3 id="Install-1"><a href="#Install-1" class="headerlink" title="Install"></a>Install</h3><p>Install tmux by apt.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> sudo apt install tmux</span><br></pre></td></tr></table></figure></p>
 <p>Modify configuration file &#39;~/.tmux.conf&#39;.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> vim ~/.tmux.conf</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bind r <span class="keyword">source</span>-<span class="keyword">file</span> ~/.tmux.<span class="keyword">conf</span></span><br><span class="line"><span class="keyword">set</span> -g prefix C-<span class="keyword">a</span></span><br><span class="line">unbind C-<span class="keyword">b</span></span><br><span class="line"><span class="keyword">set</span> -g mouse <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> -g renumber-windows <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span>-window-option -g <span class="keyword">mode</span>-<span class="built_in">keys</span> <span class="keyword">vi</span></span><br><span class="line"><span class="keyword">set</span> -g message-fg green</span><br><span class="line"><span class="keyword">set</span> -g message-bg black</span><br><span class="line"><span class="keyword">set</span> -g message-attr bright</span><br><span class="line"><span class="keyword">set</span> -g status-interval <span class="number">1</span></span><br><span class="line"><span class="keyword">set</span> -g status-justify <span class="keyword">left</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">left</span>-length <span class="number">20</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">right</span>-length <span class="number">50</span></span><br><span class="line"><span class="keyword">set</span> -g status-bg <span class="string">'#333333'</span></span><br><span class="line"><span class="keyword">set</span> -g status-fg <span class="string">'#ffffff'</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">left</span> <span class="string">'#[fg=#031dab, bg=#55bb00] S[#S] #[fg=#031dab,bg=#009c00]W[#I] #[fg=#031dab,bg=#007700]P[#P] '</span></span><br><span class="line"><span class="keyword">set</span> -g status-<span class="keyword">right</span> <span class="string">'#[fg=#031dab,bg=#55bb00] [#h] #[fg=#031dab,bg=#009c00] %Y-%m-%d #[fg=#031dab,bg=#007700] %H:%M:%S '</span></span><br><span class="line"><span class="keyword">set</span> -g status-justify centre</span><br><span class="line">setw -g window-status-current-format <span class="string">'#[bg=#ff0000, fg=#ffffff, bold] W[#I] #W '</span></span><br><span class="line">setw -g window-status-format <span class="string">'#[bg=#0000ff, fg=#ffffff] W[#I] #W '</span></span><br><span class="line">setw -g monitor-activity <span class="keyword">on</span></span><br><span class="line"><span class="keyword">set</span> -g <span class="keyword">visual</span>-activity <span class="keyword">on</span></span><br></pre></td></tr></table></figure>
-<p><strong><a href="https://github.com/graycat0918/graycat0918.github.io/tree/master/2019/09/06/linux-base-2" target="_blank" rel="noopener">CLick this link</a>, see more detailed info about <code>~/.tmux.conf</code> or download it instead of re-editing.</strong></p>
+<p><strong><a href="https://github.com/duruyao/duruyao.github.io/tree/master/2019/09/06/linux-base-2" target="_blank" rel="noopener">CLick this link</a>, see more detailed info about <code>~/.tmux.conf</code> or download it instead of re-editing.</strong></p>
 <h3 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h3><p>It&#39;s necessary to manually load the configuration file for the first time.</p>
 <p>In the Tmux shell, typing <code>Ctrl-B</code> and editing <code>source-file ~/.tmux.conf</code></p>
 <p>New session and window by using tmux.<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> tmux [new -s &lt;SessionName&gt; -n &lt;WindowName&gt;]</span><br></pre></td></tr></table></figure></p>
@@ -819,9 +819,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
-                alt="Graycat" />
+                alt="DURUYAO" />
             
-              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-author-name" itemprop="name">DURUYAO</p>
               <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
           </div>
 
@@ -928,12 +928,12 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/duruyao" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:duruyao@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
@@ -997,7 +997,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Graycat</span>
+  <span class="author" itemprop="copyrightHolder">DURUYAO</span>
 
   
 

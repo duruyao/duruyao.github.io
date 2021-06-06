@@ -64,10 +64,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/duruyao.jpg?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/duruyao.jpg?v=6.3.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
@@ -112,29 +112,29 @@
 <meta name="keywords" content="Linux,C,OS,HDU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU-OS-2 Linux内核模块编程">
-<meta property="og:url" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/index.html">
-<meta property="og:site_name" content="Graycat">
+<meta property="og:url" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/index.html">
+<meta property="og:site_name" content="Du Ruyao&#39;s Blog">
 <meta property="og:description" content="Linux 提供的模块机制能动态扩充 linux 功能而无需重新编译内核，已经广泛应用在 linux 内核的许多功能的实现中。   不知你看到这段话时是否和我一样脱口而出 MD! ZZ! ，毕竟上一个通过重新编译内核扩充 Linux 功能的实验耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！ 实验要求(1) 设计">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/50.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/Makefile-error-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/84.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/list_head_img.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/Makefile-error-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/process_list_img.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/126.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/50.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/Makefile-error-1.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/84.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/list_head_img.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/Makefile-error-2.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/process_list_img.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/126.jpg">
 <meta property="og:updated_time" content="2020-03-01T02:40:12.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-2 Linux内核模块编程">
 <meta name="twitter:description" content="Linux 提供的模块机制能动态扩充 linux 功能而无需重新编译内核，已经广泛应用在 linux 内核的许多功能的实现中。   不知你看到这段话时是否和我一样脱口而出 MD! ZZ! ，毕竟上一个通过重新编译内核扩充 Linux 功能的实验耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！ 实验要求(1) 设计">
-<meta name="twitter:image" content="https://graycat0918.github.io/2018/10/10/kernel-modules-program/50.jpg">
+<meta name="twitter:image" content="https://duruyao.github.io/2018/10/10/kernel-modules-program/50.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://graycat0918.github.io/2018/10/10/kernel-modules-program/"/>
+  <link rel="canonical" href="https://duruyao.github.io/2018/10/10/kernel-modules-program/"/>
 
 
 
@@ -144,7 +144,7 @@
   };
 </script>
 
-  <title>HDU-OS-2 Linux内核模块编程 | Graycat</title>
+  <title>HDU-OS-2 Linux内核模块编程 | Du Ruyao's Blog</title>
   
 
 
@@ -202,7 +202,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Graycat</span>
+        <span class="site-title">Du Ruyao's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -305,16 +305,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2018/10/10/kernel-modules-program/">
+    <link itemprop="mainEntityOfPage" href="https://duruyao.github.io/2018/10/10/kernel-modules-program/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="DURUYAO">
       <meta itemprop="description" content="To be, or not to be.">
       <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="Du Ruyao's Blog">
     </span>
 
     
@@ -401,7 +401,7 @@
 <p>Linux 提供的模块机制能动态扩充 linux 功能而<strong>无需重新编译内核</strong>，已经广泛应用在 linux 内核的许多功能的实现中。</p>
 </blockquote>
 <p><img src="50.jpg" alt=""></p>
-<p>不知你看到这段话时是否和我一样脱口而出 <code>MD! ZZ!</code> ，毕竟上一个<a href="https://graycat0918.github.io/2018/10/02/compile-kernel/#more">通过重新编译内核扩充 Linux 功能的实验</a>耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！</p>
+<p>不知你看到这段话时是否和我一样脱口而出 <code>MD! ZZ!</code> ，毕竟上一个<a href="https://duruyao.github.io/2018/10/02/compile-kernel/#more">通过重新编译内核扩充 Linux 功能的实验</a>耗时之久令人印象深刻。哪成想今天区区几分钟就和曾经编译几小时达到一样的效果。不禁感先人之伟大，觉自己之智障。废话少说，我们直奔主题！</p>
 <h2 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h2><p>(1) 设计一个模块，要求列出系统中所有<strong>内核线程</strong>的程序名、PID、进程状态、进程优先级及父进程PID。<br>(2) 设计一个带参数的模块，其参数为某个进程的 PID 号，该模块的功能是列出该进程的家族信息，包括父进程、兄弟进程和子进程的程序名、PID 号、进程状态。<br>(3) 请根据自身情况，进一步阅读分析程序中用到的相关内核函数的源码实现。</p>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> mkdir os_2 # 新建文件夹 </span><br><span class="line"><span class="meta">$</span> cd os_2</span><br><span class="line"><span class="meta">$</span> mkdir all_task family_task # 分别存放模块1，模块2的所有资源</span><br></pre></td></tr></table></figure>
 <h2 id="模块一-无参"><a href="#模块一-无参" class="headerlink" title="模块一(无参)"></a>模块一(无参)</h2><h3 id="编辑模块"><a href="#编辑模块" class="headerlink" title="编辑模块"></a>编辑模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> cd all_task </span><br><span class="line"><span class="meta">$</span> vim all_task.c</span><br></pre></td></tr></table></figure>
@@ -584,9 +584,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
-                alt="Graycat" />
+                alt="DURUYAO" />
             
-              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-author-name" itemprop="name">DURUYAO</p>
               <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
           </div>
 
@@ -693,12 +693,12 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/duruyao" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:duruyao@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
@@ -762,7 +762,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Graycat</span>
+  <span class="author" itemprop="copyrightHolder">DURUYAO</span>
 
   
 

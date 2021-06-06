@@ -64,10 +64,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/duruyao.jpg?v=6.3.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/graycat.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/duruyao.jpg?v=6.3.0">
 
 
   <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
@@ -112,40 +112,40 @@
 <meta name="keywords" content="Linux,C,OS,HDU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU-OS-1 Linux内核编译及添加系统调用">
-<meta property="og:url" content="https://graycat0918.github.io/2018/10/02/compile-kernel/index.html">
-<meta property="og:site_name" content="Graycat">
+<meta property="og:url" content="https://duruyao.github.io/2018/10/02/compile-kernel/index.html">
+<meta property="og:site_name" content="Du Ruyao&#39;s Blog">
 <meta property="og:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/70.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/141.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/12-view-syscall-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/13-add-syscall-id.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/15-set-syscall-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/16-set-syscalll-3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/24-ready-compile-3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/26-set-kenerl-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/27-set-kenerl-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/28-set-kenerl-3.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/29-set-kenerl-4.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/30-set-kenerl-5.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/31-set-kenerl-6.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/142.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/34-make-module-1.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/45-test-2.png">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/8.jpg">
-<meta property="og:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/75.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/70.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/141.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/12-view-syscall-2.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/13-add-syscall-id.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/15-set-syscall-2.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/16-set-syscalll-3.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/24-ready-compile-3.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/26-set-kenerl-1.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/27-set-kenerl-2.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/28-set-kenerl-3.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/29-set-kenerl-4.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/30-set-kenerl-5.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/31-set-kenerl-6.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/142.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/34-make-module-1.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/45-test-2.png">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/8.jpg">
+<meta property="og:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/75.jpg">
 <meta property="og:updated_time" content="2020-03-01T02:40:09.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU-OS-1 Linux内核编译及添加系统调用">
 <meta name="twitter:description" content="编译失败，虽千万次，吾往矣  什么！你编译内核...也...又失败了？看过无数篇实验教程却还是手足无措？得不到想要的结果却觉得是和指导书一样的操作？你感动天，感动地，却没能感动编译器。是不是有点想放弃？试图把第一个实验水过去。Hey! Man! Don&amp;#39;t do it before looking here! 本文中，笔者将从零开始，和你一起完成第一个实验，以一个重修os的老学长的姿态和">
-<meta name="twitter:image" content="https://graycat0918.github.io/2018/10/02/compile-kernel/70.jpg">
+<meta name="twitter:image" content="https://duruyao.github.io/2018/10/02/compile-kernel/70.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="https://graycat0918.github.io/2018/10/02/compile-kernel/"/>
+  <link rel="canonical" href="https://duruyao.github.io/2018/10/02/compile-kernel/"/>
 
 
 
@@ -155,7 +155,7 @@
   };
 </script>
 
-  <title>HDU-OS-1 Linux内核编译及添加系统调用 | Graycat</title>
+  <title>HDU-OS-1 Linux内核编译及添加系统调用 | Du Ruyao's Blog</title>
   
 
 
@@ -213,7 +213,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Graycat</span>
+        <span class="site-title">Du Ruyao's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -316,16 +316,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://graycat0918.github.io/2018/10/02/compile-kernel/">
+    <link itemprop="mainEntityOfPage" href="https://duruyao.github.io/2018/10/02/compile-kernel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="DURUYAO">
       <meta itemprop="description" content="To be, or not to be.">
       <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Graycat">
+      <meta itemprop="name" content="Du Ruyao's Blog">
     </span>
 
     
@@ -684,9 +684,9 @@
             
               <img class="site-author-image" itemprop="image"
                 src="https://avatars3.githubusercontent.com/u/37443077?s=400&u=7e3740d0f2a83ebc242c542cf09cfcc460a887fd&v=4#/images/avatar.gif"
-                alt="Graycat" />
+                alt="DURUYAO" />
             
-              <p class="site-author-name" itemprop="name">Graycat</p>
+              <p class="site-author-name" itemprop="name">DURUYAO</p>
               <p class="site-description motion-element" itemprop="description">To be, or not to be.</p>
           </div>
 
@@ -793,12 +793,12 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/graycat0918" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/duruyao" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:graycat0918@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:duruyao@outlook.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
@@ -862,7 +862,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Graycat</span>
+  <span class="author" itemprop="copyrightHolder">DURUYAO</span>
 
   
 
